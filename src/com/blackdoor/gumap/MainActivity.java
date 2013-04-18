@@ -2,6 +2,8 @@ package com.blackdoor.gumap;
 
 import java.util.Locale;
 
+import com.google.android.gms.maps.GoogleMap;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
@@ -39,11 +41,31 @@ public class MainActivity extends FragmentActivity{
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-	// have  a comment
+	private GoogleMap mapGU;
+	
+//	protected void onResume(Bundle savedInstanceState){
+//		super.onResume(savedInstanceState);
+//		
+//	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//get the map here
+		setUpMapIfNeeded();
+		
+	}
+	private void setUpMapIfNeeded() {
+	    // Do a null check to confirm that we have not already instantiated the map.
+	    if (mapGU == null) {
+	        mapGU = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
+	                            .getMap();
+	        // Check if we were successful in obtaining the map.
+	        if (mapGU != null) {
+	            // The Map is verified. It is now safe to manipulate the map.
+
+	        }
+	    }
 	}
 //		// Set up the action bar.
 //		final ActionBar actionBar = getActionBar();
