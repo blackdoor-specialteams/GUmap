@@ -20,7 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class MainActivity extends Activity{
+public class MainActivity extends FragmentActivity{
 	//extends FragmentActivity implements
 
 		//ActionBar.TabListener {
@@ -81,12 +81,12 @@ public class MainActivity extends Activity{
 //		}
 //	}
 //
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.main, menu);
-//		return true;
-//	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
 //
 //	@Override
 //	public void onTabSelected(ActionBar.Tab tab,
