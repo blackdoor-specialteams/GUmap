@@ -2,7 +2,8 @@ package com.blackdoor.gumap;
 
 import java.util.Locale;
 
-import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.model.*;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -14,6 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,7 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class MainActivity extends FragmentActivity{
+public class MainActivity extends Activity{
 	//extends FragmentActivity implements
 
 		//ActionBar.TabListener {
@@ -41,8 +43,12 @@ public class MainActivity extends FragmentActivity{
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-	private GoogleMap mapGU;
-	
+	private GoogleMap guMap;
+	private MapFragment guMapFragment;
+	private Zoom zoom = Zoom.MEDIUM;
+	public static enum Zoom {
+	    CLOSE, MEDIUM, FAR 
+	}
 //	protected void onResume(Bundle savedInstanceState){
 //		super.onResume(savedInstanceState);
 //		
@@ -51,22 +57,81 @@ public class MainActivity extends FragmentActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//get the map here
-		setUpMapIfNeeded();
+		addMapFragment();
 		
 	}
+	
+	protected void onStart(){
+		super.onStart();
+		//get the map here
+		setUpMapIfNeeded();
+	}
+	//make this work
+	// bounds of the desired area
+//	var allowedBounds = new google.maps.LatLngBounds(
+//	     new google.maps.LatLng(70.33956792419954, 178.01171875), 
+//	     new google.maps.LatLng(83.86483689701898, -88.033203125)
+//	);
+//	var lastValidCenter = map.getCenter();
+//
+//	google.maps.event.addListener(map, 'center_changed', function() {
+//	    if (allowedBounds.contains(map.getCenter())) {
+//	        // still within valid bounds, so save the last valid position
+//	        lastValidCenter = map.getCenter();
+//	        return; 
+//	    }
+//
+//	    // not valid anymore => return to last valid position
+//	    map.panTo(lastValidCenter);
+//	});
+	
+	
+	
+	public void zoomOut(View view) {
+    	if(zoom==Zoom.MEDIUM){
+    		guMap.animateCamera(CameraUpdateFactory.zoomTo(16));
+    		zoom = Zoom.FAR;
+    	}
+    	else if(zoom==Zoom.CLOSE){
+    		guMap.animateCamera(CameraUpdateFactory.zoomTo(17));
+    		zoom = Zoom.MEDIUM;
+    	}
+    }
+    public void zoomIn(View view) {
+    	if(zoom==Zoom.MEDIUM){
+    		guMap.animateCamera(CameraUpdateFactory.zoomTo(19));
+    		zoom = Zoom.CLOSE;
+    	}
+    	else if(zoom==Zoom.FAR){
+    		guMap.animateCamera(CameraUpdateFactory.zoomTo(17));
+    		zoom = Zoom.MEDIUM;	
+    	}
+    }
 	private void setUpMapIfNeeded() {
 	    // Do a null check to confirm that we have not already instantiated the map.
-	    if (mapGU == null) {
-	        mapGU = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-	                            .getMap();
+	    if (guMap == null) {
+	    	guMap = guMapFragment.getMap();              
 	        // Check if we were successful in obtaining the map.
-	        if (mapGU != null) {
+	        if (guMap != null) {
 	            // The Map is verified. It is now safe to manipulate the map.
-
+	        	
 	        }
 	    }
 	}
+	 private GoogleMapOptions loadMapOptions(){
+	    	GoogleMapOptions options = new GoogleMapOptions();
+	    	options.camera(new CameraPosition(new LatLng(47.667454, -117.402309), 17, 0, 0));//coords, zoom, tilt, bearing
+	    	options.zoomGesturesEnabled(false);
+	    	options.zoomControlsEnabled(false);
+	    	return options;
+	    }
+	private void addMapFragment(){
+    	guMapFragment = MapFragment.newInstance(loadMapOptions());
+        FragmentTransaction fragmentTransaction =
+                getFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.mapContainer, guMapFragment);
+        fragmentTransaction.commit(); 
+    }
 //		// Set up the action bar.
 //		final ActionBar actionBar = getActionBar();
 //		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
