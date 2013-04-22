@@ -4,6 +4,15 @@
 R.java
 Manifest.java
 #################
+## Android
+#################
+
+gen/
+*.dex
+*.class
+*.apk
+*.ap_
+#################
 ## Eclipse
 #################
 
