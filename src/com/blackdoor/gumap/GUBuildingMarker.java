@@ -47,6 +47,11 @@ public class GUBuildingMarker {
 		buildingOptions.draggable(false).position(coordinates).title(name).icon(BitmapDescriptorFactory.fromAsset(name + "_" + zoomLevel + ".png"));
 	}
 	
+	public void updateBuildingOptions()
+	{
+		buildingOptions.draggable(false).position(coordinates).title(name).icon(BitmapDescriptorFactory.fromAsset(name + "_" + zoomLevel + ".png"));
+	}
+	
 	public void updateIcon()
 	{
 		buildingOptions.icon(BitmapDescriptorFactory.fromAsset(name + "_" + zoomLevel + ".png"));		
@@ -90,6 +95,11 @@ public class GUBuildingMarker {
 	public Zoom getZoom()
 	{
 		return(zoomLevel);
+	}
+	
+	public MarkerOptions getBuildingOptions()
+	{
+		return(buildingOptions);
 	}
 	
 	public void setName(String name)
