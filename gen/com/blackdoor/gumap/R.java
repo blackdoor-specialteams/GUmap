@@ -142,13 +142,18 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f040007;
+        public static final int ButtonContainer=0x7f040007;
+        public static final int action_settings=0x7f04000c;
+        public static final int button1=0x7f040008;
+        public static final int button2=0x7f040009;
         public static final int hybrid=0x7f040004;
-        public static final int map=0x7f040005;
+        public static final int mainLayout=0x7f040005;
+        public static final int map=0x7f04000a;
+        public static final int mapContainer=0x7f040006;
         public static final int none=0x7f040000;
         public static final int normal=0x7f040001;
         public static final int satellite=0x7f040002;
-        public static final int section_label=0x7f040006;
+        public static final int section_label=0x7f04000b;
         public static final int terrain=0x7f040003;
     }
     public static final class layout {

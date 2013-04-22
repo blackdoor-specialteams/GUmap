@@ -1,5 +1,6 @@
 package com.blackdoor.gumap;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 import com.google.android.gms.maps.*;
@@ -45,6 +46,7 @@ public class MainActivity extends Activity{
 	ViewPager mViewPager;
 	private GoogleMap guMap;
 	private MapFragment guMapFragment;
+	private HashMap<String,GUBuildingMarker> markers;
 	private Zoom zoom = Zoom.MEDIUM;
 	public static enum Zoom {
 	    CLOSE, MEDIUM, FAR 
@@ -263,4 +265,6 @@ public class MainActivity extends Activity{
 //		}
 //	}
 
+	
+	
 }
