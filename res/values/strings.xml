@@ -8,5 +8,6 @@
     <string name="title_section3">Section 3</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_building_info">BuildingInfo</string>
 
 </resources>
