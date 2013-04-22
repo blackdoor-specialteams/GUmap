@@ -1,56 +1,56 @@
-NAME,LATITUDE,LONGITUDE
-301 E Boone (Boone Appartments),47.668747,-117.405986
-Alliance Residence Hall,47.668697,-117.400176
-Burch Appartments,47.669265,-117.406721
-Cataldo Hall,47.668581,-117.403652
-Campion Residence Hall,47.668712,-117.401131
-Chardin Residence Hall,47.669838,-117.399538
-College Hall,47.668314,-117.403035
-COG (Bookstore/Dining),47.666988,-117.39958
-Corkery Appartments,47.670006,-117.40061
-Crosby Student Center,47.667371,-117.401351
-Coughlin Hall,47.664845,-117.397478
-Crimont Residence Hall,47.670304,-117.401646
-Cushing Residence Hall,47.669169,-117.403341
-Desmet Residence Hall,47.667779,-117.401093
-Dillon Residence Hall,47.66929,-117.40097
-Dooley Residence Hall,47.669061,-117.405465
-Dussault Appartments,47.667,-117.408083
-Foley Center Library,47.666642,-117.40097
-Goller Residence Hall,47.669244,-117.400262
-Health Center (Campus Services/Housing),47.669241,-117.399484
-Herak Center,47.666812,-117.401989
-Hughes Hall,47.666981,-117.403132
-Human Physiology,47.667796,-117.407584
-Jesuit House & Chapel,47.667201,-117.403813
-Jundt Art Museum,47.666617,-117.406506
-Journalism/Broadcast Studies,47.668639,-117.407568
-Kennedy Appartments,47.668577,-117.408775
-Knights of Columbus,47.668231,-117.406259
-Law School,47.663489,-117.400471
-Lincoln Residence Hall,47.668535,-117.399409
-MacCarthey Athletic Center,47.665797,-117.39913
-Madonna Residence Hall,47.666846,-117.397644
-Magnuson Theatre,47.668311,-117.401726
-Marian Residence Hall,47.668545,-117.393996
-Martin Centre (Fitness),47.665725,-117.400589
-Mulligan Field,47.666391,-117.398921
-Music Annex,47.668144,-117.407541
-Music Building (Monaghan Mansion),47.668627,-117.406704
-PACCAR,47.666383,-117.402161
-Patterson Baseball Complex,47.663209,-117.399725
-Quad Field,47.667259,-117.402306
-Robinson House,47.668832,-117.404312
-Roncalli Residence Hall,47.668642,-117.399023
-Rosauer Center,47.66804,-117.399264
-Schoenberg Center,47.66593,-117.407944
-Sharp Apartments/Sharp House,47.669235,-117.403663
-Sinto Appartments,47.670854,-117.407413
-Soccer Field,47.66486,-117.402134
-St. Aloysius Church,47.668346,-117.404215
-St. Catherine/St. Monica Residence Hall,47.665896,-117.397333
-Theatre/Dance Studio,47.66762,-117.407402
-Tilford Center,47.667453,-117.408813
-Twohy Residence Hall,47.668858,-117.397692
-Vachon Art Studio,47.666225,-117.403132
-Welch Residence Hall,47.66782,-117.400165
+NAME,LATITUDE,LONGITUDE,Description,Hours,Services,Dining,Contact Info
+301 E Boone (Boone Appartments),47.668747,-117.405986,,,,,
+Alliance Residence Hall,47.668697,-117.400176,,,,,
+Burch Appartments,47.669265,-117.406721,,,,,
+Cataldo Hall,47.668581,-117.403652,,,,,
+Campion Residence Hall,47.668712,-117.401131,,,,,
+Chardin Residence Hall,47.669838,-117.399538,,,,,
+College Hall,47.668314,-117.403035,,,,,
+COG (Bookstore/Dining),47.666988,-117.39958,,,,,
+Corkery Appartments,47.670006,-117.40061,,,,,
+Crosby Student Center,47.667371,-117.401351,,,,,
+Coughlin Hall,47.664845,-117.397478,,,,,
+Crimont Residence Hall,47.670304,-117.401646,,,,,
+Cushing Residence Hall,47.669169,-117.403341,,,,,
+Desmet Residence Hall,47.667779,-117.401093,,,,,
+Dillon Residence Hall,47.66929,-117.40097,,,,,
+Dooley Residence Hall,47.669061,-117.405465,,,,,
+Dussault Appartments,47.667,-117.408083,,,,,
+Foley Center Library,47.666642,-117.40097,,,,,
+Goller Residence Hall,47.669244,-117.400262,,,,,
+Health Center (Campus Services/Housing),47.669241,-117.399484,,,,,
+Herak Center,47.666812,-117.401989,,,,,
+Hughes Hall,47.666981,-117.403132,,,,,
+Human Physiology,47.667796,-117.407584,,,,,
+Jesuit House & Chapel,47.667201,-117.403813,,,,,
+Jundt Art Museum,47.666617,-117.406506,,,,,
+Journalism/Broadcast Studies,47.668639,-117.407568,,,,,
+Kennedy Appartments,47.668577,-117.408775,,,,,
+Knights of Columbus,47.668231,-117.406259,,,,,
+Law School,47.663489,-117.400471,,,,,
+Lincoln Residence Hall,47.668535,-117.399409,,,,,
+MacCarthey Athletic Center,47.665797,-117.39913,,,,,
+Madonna Residence Hall,47.666846,-117.397644,,,,,
+Magnuson Theatre,47.668311,-117.401726,,,,,
+Marian Residence Hall,47.668545,-117.393996,,,,,
+Martin Centre (Fitness),47.665725,-117.400589,,,,,
+Mulligan Field,47.666391,-117.398921,,,,,
+Music Annex,47.668144,-117.407541,,,,,
+Music Building (Monaghan Mansion),47.668627,-117.406704,,,,,
+PACCAR,47.666383,-117.402161,,,,,
+Patterson Baseball Complex,47.663209,-117.399725,,,,,
+Quad Field,47.667259,-117.402306,,,,,
+Robinson House,47.668832,-117.404312,,,,,
+Roncalli Residence Hall,47.668642,-117.399023,,,,,
+Rosauer Center,47.66804,-117.399264,,,,,
+Schoenberg Center,47.66593,-117.407944,,,,,
+Sharp Apartments/Sharp House,47.669235,-117.403663,,,,,
+Sinto Appartments,47.670854,-117.407413,,,,,
+Soccer Field,47.66486,-117.402134,,,,,
+St. Aloysius Church,47.668346,-117.404215,,,,,
+St. Catherine/St. Monica Residence Hall,47.665896,-117.397333,,,,,
+Theatre/Dance Studio,47.66762,-117.407402,,,,,
+Tilford Center,47.667453,-117.408813,,,,,
+Twohy Residence Hall,47.668858,-117.397692,,,,,
+Vachon Art Studio,47.666225,-117.403132,,,,,
+Welch Residence Hall,47.66782,-117.400165,,,,,
