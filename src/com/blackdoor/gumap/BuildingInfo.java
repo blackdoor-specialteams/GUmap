@@ -1,5 +1,6 @@
 package com.blackdoor.gumap;
 
+import android.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -23,7 +24,9 @@ import android.widget.TextView;
 public class BuildingInfo extends Activity {
 
 	private GUBuildingMarker building;
-	private TextView BuidlingName;
+	private TextView BuildingName;
+	private TextView BuildingDes;
+	private TextView BuildingHours;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +46,20 @@ public class BuildingInfo extends Activity {
 	
 	public void PopulateText()
 	{
-		setBuildingName();
+		setBuildingNameTEXT();
+		setBuildingDescriptionTEXT();
 		
 	}
-	
-	private void setBuildingName()
+	private void setBuildingNameTEXT()
 	{
 		BuidlingName = (TextView) findViewById(R.id.Bname);
 		BuidlingName.setText(building.getName());
+	}
+	
+	private void setBuildingDescriptionTEXT()
+	{
+		BuildingDes = (TextView) findViewById(R.id.Bdescription);
+		BuildingDes.setText(building.getDescription());
 	}
 	
 	

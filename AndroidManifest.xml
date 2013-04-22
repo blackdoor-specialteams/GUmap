@@ -56,7 +56,7 @@
 
         <activity
             android:name="com.blackdoor.gumap.BuildingInfo"
-            android:theme="@style/Theme.Holo.NoActionBar">
+            android:theme="@style/Theme.Holo.Light.NoActionBar">
             android:label="@string/title_activity_building_info" >
         </activity>
     </application>
