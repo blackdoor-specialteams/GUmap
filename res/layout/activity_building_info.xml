@@ -43,7 +43,7 @@
                 android:layout_alignBaseline="@+id/textView1"
                 android:layout_alignBottom="@+id/textView1"
                 android:layout_centerHorizontal="true"
-                android:text="-------Description---------------"
+                android:text="@string/div_Description"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
@@ -53,7 +53,7 @@
                 android:gravity="left"
                 android:lines="4"
                 android:maxLines="4"
-                android:text="Lorem ipsum dolor sit amet trrtrtrtrtrt what is this i see in my head, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
+                android:text="@string/multiline_filler" />
 
             <TextView
                 android:id="@+id/divider_hours"
@@ -62,7 +62,7 @@
                 android:layout_alignBaseline="@+id/textView1"
                 android:layout_alignBottom="@+id/textView1"
                 android:layout_centerHorizontal="true"
-                android:text="-------Hours of Operation----------"
+                android:text="@string/div_Hours"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
@@ -72,7 +72,7 @@
                 android:gravity="left"
                 android:lines="4"
                 android:maxLines="4"
-                android:text="Lorem ipsum dolor sit amet trrtrtrtrtrt what is this i see in my head, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
+                android:text="@string/multiline_filler" />
         </LinearLayout>
     </LinearLayout>
 
