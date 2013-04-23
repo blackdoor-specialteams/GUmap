@@ -134,6 +134,10 @@ public class MainActivity extends Activity{
         fragmentTransaction.add(R.id.mapContainer, guMapFragment);
         fragmentTransaction.commit(); 
     }
+	
+	public Zoom getZoom(){
+		return zoom;
+	}
 //		// Set up the action bar.
 //		final ActionBar actionBar = getActionBar();
 //		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

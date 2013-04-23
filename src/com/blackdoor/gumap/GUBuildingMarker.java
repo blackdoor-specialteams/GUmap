@@ -32,29 +32,46 @@ public class GUBuildingMarker {
 	private String name, description, hours, services, dining, contactInfo;
 	private LatLng coordinates;
 	private Zoom zoomLevel = Zoom.MEDIUM;
-	
-		
-	public GUBuildingMarker(String newName, LatLng newCoords, String newDescription, String newHours, String newServices, String newDining, String newContactInfo)
+	private MainActivity containingActivity;
+	private BitmapDescriptor iconClose;
+	private BitmapDescriptor iconMedium;
+	private BitmapDescriptor iconFar;	
+	public GUBuildingMarker(MainActivity containingActivity, String newName, LatLng newCoords, String newDescription, String newHours, String newServices, String newDining, String newContactInfo)
 	{
-		this.name = newName;
-		this.coordinates = newCoords;
-		this.description = newDescription;
-		this.hours = newHours;
-		this.services = newServices;
-		this.dining = newDining;
-		this.contactInfo = newContactInfo;
-		
-		buildingOptions.draggable(false).position(coordinates).title(name).icon(BitmapDescriptorFactory.fromAsset(name + "_" + zoomLevel + ".png"));
+		this.containingActivity = containingActivity;
+		name = newName;
+		coordinates = newCoords;
+		description = newDescription;
+		hours = newHours;
+		services = newServices;
+		dining = newDining;
+		contactInfo = newContactInfo;
+		iconClose = BitmapDescriptorFactory.fromAsset(name + "_CLOSE" + ".png");
+		iconMedium = BitmapDescriptorFactory.fromAsset(name + "_MEDIUM" + ".png");
+		iconFar = BitmapDescriptorFactory.fromAsset(name + "_FAR" + ".png");
+		buildingOptions.draggable(false).position(coordinates).title(name).icon(iconMedium);
 	}
 	
 	public void updateBuildingOptions()
 	{
-		buildingOptions.draggable(false).position(coordinates).title(name).icon(BitmapDescriptorFactory.fromAsset(name + "_" + zoomLevel + ".png"));
+		buildingOptions.draggable(false).position(coordinates).title(name);
+		updateIcon();
 	}
 	
+	// much better
 	public void updateIcon()
 	{
-		buildingOptions.icon(BitmapDescriptorFactory.fromAsset(name + "_" + zoomLevel + ".png"));		
+		zoomLevel = containingActivity.getZoom();
+		switch (zoomLevel) {
+            case CLOSE:  	buildingOptions.icon(iconClose);
+                     break;
+            case MEDIUM:	buildingOptions.icon(iconMedium);
+                     break;
+            case FAR:		buildingOptions.icon(iconFar);
+            default: buildingOptions.icon(iconMedium);
+                     break;
+        }
+		//buildingOptions.icon(BitmapDescriptorFactory.fromAsset(name + "_" + zoomLevel + ".png"));		
 	}
 	
 	public String getName()
@@ -137,8 +154,11 @@ public class GUBuildingMarker {
 		this.contactInfo = contactInfo;
 	}
 	
-	public void setZoom(Zoom zLevel)
-	{
-		this.zoomLevel = zLevel;
-	}
+	//actually fuckit, we don't need to set the zoomLevel for each marker individually
+	// public void setZoom(Zoom zLevel)
+	// {
+		// this.zoomLevel = zLevel;
+		//whats the point of changing the zoomLevel if we don't update the icon?
+		// updateIcon();
+	// }
 }
