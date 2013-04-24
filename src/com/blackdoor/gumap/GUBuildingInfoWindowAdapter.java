@@ -17,9 +17,12 @@ public class GUBuildingInfoWindowAdapter implements InfoWindowAdapter {
 	public GUBuildingInfoWindowAdapter(MainActivity containingActivity){
 		this.containingActivity = containingActivity;
 	}
+	public void setContainer(MainActivity containingActivity){
+		this.containingActivity = containingActivity;
+	}
 	@Override
 	public View getInfoContents(Marker arg0) {
-		Map markerMap = containingActivity.getMarkers();
+		Map<String, GUBuildingMarker> markerMap = containingActivity.getMarkers();
 		GUBuildingMarker marker = markerMap.get(arg0.getTitle());
 		EditText newText = new EditText(null);
 		newText.setText(marker.getName()+"\n"+marker.getDescription()+marker.getHours()+"\n"+marker.getDescription());

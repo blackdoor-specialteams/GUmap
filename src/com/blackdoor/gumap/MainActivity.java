@@ -51,6 +51,7 @@ public class MainActivity extends Activity{
 	private HashMap<String,GUBuildingMarker> markers;
 	private CSV reader;
 	private Zoom zoom = Zoom.MEDIUM;
+	
 	public static enum Zoom {
 	    CLOSE, MEDIUM, FAR 
 	}
@@ -70,6 +71,7 @@ public class MainActivity extends Activity{
 		super.onStart();
 		//get the map here
 		setUpMapIfNeeded();
+		postStartSetup();
 	}
 	//make this work
 	// bounds of the desired area
@@ -122,6 +124,10 @@ public class MainActivity extends Activity{
 	        	
 	        }
 	    }
+	}
+	// guMap will be initialized by the time this is called
+	private void postStartSetup(){
+		guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
 	}
 	 private GoogleMapOptions loadMapOptions(){
 	    	GoogleMapOptions options = new GoogleMapOptions();
