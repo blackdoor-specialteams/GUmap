@@ -6,9 +6,8 @@ import java.util.Map;
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.model.Marker;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 
 
 
@@ -24,7 +23,7 @@ public class GUBuildingInfoWindowAdapter implements InfoWindowAdapter {
 	public View getInfoContents(Marker arg0) {
 		Map<String, GUBuildingMarker> markerMap = containingActivity.getMarkers();
 		GUBuildingMarker marker = markerMap.get(arg0.getTitle());
-		EditText newText = new EditText(null);
+		TextView newText = new TextView(containingActivity);
 		newText.setText(marker.getName()+"\n"+marker.getDescription()+marker.getHours()+"\n"+marker.getDescription());
 		return newText;
 	}
