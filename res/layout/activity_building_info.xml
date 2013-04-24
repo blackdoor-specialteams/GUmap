@@ -44,7 +44,7 @@
                 android:layout_alignBottom="@+id/textView1"
                 android:layout_centerHorizontal="true"
                 android:text="@string/div_Description"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/Bdescription"
@@ -52,7 +52,7 @@
                 android:layout_height="fill_parent"
                 android:gravity="left"
                 android:lines="4"
-                android:maxLines="4"
+                android:maxLines="10"
                 android:text="@string/multiline_filler" />
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_alignBottom="@+id/textView1"
                 android:layout_centerHorizontal="true"
                 android:text="@string/div_Hours"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/Bhours"
@@ -71,8 +71,66 @@
                 android:layout_height="fill_parent"
                 android:gravity="left"
                 android:lines="4"
-                android:maxLines="4"
+                android:maxLines="10"
                 android:text="@string/multiline_filler" />
+
+            <TextView
+                android:id="@+id/divider_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView1"
+                android:layout_alignBottom="@+id/textView1"
+                android:layout_centerHorizontal="true"
+                android:text="@string/div_Service"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/Bservice"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="left"
+                android:lines="4"
+                android:maxLines="10"
+                android:text="@string/multiline_filler" />
+
+            <TextView
+                android:id="@+id/divider_dining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView1"
+                android:layout_alignBottom="@+id/textView1"
+                android:layout_centerHorizontal="true"
+                android:text="@string/div_Dining"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/Bdining"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="left"
+                android:maxLines="10"
+                android:minLines="1"
+                android:text="@string/multiline_filler" />
+
+            <TextView
+                android:id="@+id/divider_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView1"
+                android:layout_alignBottom="@+id/textView1"
+                android:layout_centerHorizontal="true"
+                android:text="@string/div_Contact"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/Bcontact"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="left"
+                android:maxLines="10"
+                android:minLines="1"
+                android:text="@string/multiline_filler" />
+
         </LinearLayout>
     </LinearLayout>
 
