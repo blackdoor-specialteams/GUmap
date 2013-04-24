@@ -35,7 +35,6 @@ public class GUBuildingMarker {
 	private MainActivity containingActivity;
 	private BitmapDescriptor iconClose;
 	private BitmapDescriptor iconMedium;
-	private BitmapDescriptor iconFar;	
 	public GUBuildingMarker(MainActivity containingActivity, String newName, LatLng newCoords, String newDescription, String newHours, String newServices, String newDining, String newContactInfo)
 	{
 		this.containingActivity = containingActivity;
@@ -48,7 +47,6 @@ public class GUBuildingMarker {
 		contactInfo = newContactInfo;
 		iconClose = BitmapDescriptorFactory.fromAsset(name + "_CLOSE" + ".png");
 		iconMedium = BitmapDescriptorFactory.fromAsset(name + "_MEDIUM" + ".png");
-		iconFar = BitmapDescriptorFactory.fromAsset(name + "_FAR" + ".png");
 		buildingOptions.draggable(false).position(coordinates).title(name).icon(iconMedium);
 	}
 	
@@ -64,10 +62,12 @@ public class GUBuildingMarker {
 		zoomLevel = containingActivity.getZoom();
 		switch (zoomLevel) {
             case CLOSE:  	buildingOptions.icon(iconClose);
+            buildingOptions.visible(true);
                      break;
             case MEDIUM:	buildingOptions.icon(iconMedium);
+            buildingOptions.visible(true);
                      break;
-            case FAR:		buildingOptions.icon(iconFar);
+            case FAR:		buildingOptions.visible(false);
             default: buildingOptions.icon(iconMedium);
                      break;
         }
