@@ -2,6 +2,7 @@ package com.blackdoor.gumap;
 
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import blackdoor.util.CSV;
 
@@ -73,6 +74,11 @@ public class MainActivity extends Activity{
 		setUpMapIfNeeded();
 		postStartSetup();
 	}
+	
+	public Map<String, GUBuildingMarker> getMarkers(){
+		return markers;
+	}
+	
 	//make this work
 	// bounds of the desired area
 //	var allowedBounds = new google.maps.LatLngBounds(
