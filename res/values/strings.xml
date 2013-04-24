@@ -8,8 +8,8 @@
     <string name="title_section3">Section 3</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="title_activity_building_info">BuildingInfo</string>
-    <string name="multiline_filler">Lorem ipsum dolor sit amet trrtrtrtrtrt what is this i see in my head, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
-Lorem ipsum dolor sit amet trrtrtrtrtrt what is this i see in my head, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.     <string name="div_Description">-------------Description-----------------</string>
+    <string name="multiline_filler">Lorem ipsum dolor sit amet trrtrtrtrtrt what is this i see in my head, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet trrtrtrtrtrt what is this i see in my head, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>     <string name="div_Description">-------------Description-----------------</string>
     <string name="div_Hours">--------Hours of Operation---------------</string>
 
 </resources>
