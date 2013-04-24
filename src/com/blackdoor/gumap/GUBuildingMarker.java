@@ -2,6 +2,8 @@ package com.blackdoor.gumap;
 
 import java.util.Locale;
 
+import blackdoor.util.*;
+
 import com.blackdoor.gumap.MainActivity.Zoom;
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;

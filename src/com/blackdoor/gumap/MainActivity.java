@@ -3,6 +3,8 @@ package com.blackdoor.gumap;
 import java.util.HashMap;
 import java.util.Locale;
 
+import blackdoor.util.CSV;
+
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.*;
 
@@ -47,6 +49,7 @@ public class MainActivity extends Activity{
 	private GoogleMap guMap;
 	private MapFragment guMapFragment;
 	private HashMap<String,GUBuildingMarker> markers;
+	private CSV reader;
 	private Zoom zoom = Zoom.MEDIUM;
 	public static enum Zoom {
 	    CLOSE, MEDIUM, FAR 
