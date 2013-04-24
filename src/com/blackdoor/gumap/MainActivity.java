@@ -1,8 +1,12 @@
 package com.blackdoor.gumap;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.concurrent.ConcurrentSkipListMap;
 
 import blackdoor.util.CSV;
 
@@ -99,7 +103,44 @@ public class MainActivity extends Activity{
 //	});
 	
 	
-	
+	public ConcurrentSkipListMap gatherBuildingData(String fileName)
+	{
+		ConcurrentSkipListMap<String,GUBuildingMarker> buildingDataMap = new ConcurrentSkipListMap<String,GUBuildingMarker>();
+		StringTokenizer tokenizer;
+		String columnHeaders;
+
+		try {
+			BufferedReader fileReader = new BufferedReader(new FileReader(fileName));
+			columnHeaders = fileReader.readLine();
+			while(fileReader.ready())
+			{
+				String line = fileReader.readLine();
+				tokenizer = new StringTokenizer(line);
+				
+				String name = tokenizer.nextToken(",");
+				LatLng coords = new LatLng(Double.parseDouble(tokenizer.nextToken(",")),Double.parseDouble(tokenizer.nextToken(",")));
+				String hours = tokenizer.nextToken(",");
+				String services = tokenizer.nextToken(",");
+				String dining = tokenizer.nextToken(",");
+				String contactInfo = tokenizer.nextToken(",");
+			
+				String description = fileReader.readLine();
+				description = description.substring(0, description.length() - 8);
+				//System.out.println("name: " + name + "\n lat: " + lat + "\n lng: " + lng   + "\n hours: " + hours + "\n serv: " + services + "\n din: " + dining + "\n cont: " + contactInfo + "\n desc: " + description);
+				
+				buildingDataMap.put(name, new GUBuildingMarker(this,name,coords,description,hours,services,dining,contactInfo));
+			
+			}
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("Error: File " + fileName + "not found");
+			System.exit(0);
+		} catch (IOException e) {
+			System.out.println("Error: Input from file mishandled");
+			System.exit(0);
+		}
+		return buildingDataMap;
+	}
 	public void zoomOut(View view) {
     	if(zoom==Zoom.MEDIUM){
     		guMap.animateCamera(CameraUpdateFactory.zoomTo(16));
