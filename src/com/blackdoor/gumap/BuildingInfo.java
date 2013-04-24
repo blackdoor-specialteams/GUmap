@@ -1,9 +1,12 @@
 package com.blackdoor.gumap;
 
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
-import java.util.Locale;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
@@ -23,6 +26,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BuildingInfo extends Activity {
+	//Experimental Stuff
+	MainActivity containingActivity;
+	Map<String, GUBuildingMarker> markerMap;
 	//BUILDING
 	private GUBuildingMarker building;
 	//Picture Icon 
@@ -56,10 +62,20 @@ public class BuildingInfo extends Activity {
 	}
 	/*_________________________________________________
 	 * Procures the proper building from the Map
+	 * 
+	 * THIS NEEDS WORK........otherwise we good to go
 	 *_________________________________________________
 	 */
 	public void EstablishBuilding() {
+		markerMap = containingActivity.getMarkers();
 		
+		//EXAMPLE:::::
+		//Intent myIntent = new Intent(mycurentActivity.this, secondActivity.class);
+		//myIntent.putExtra("key", myEditText.Text.toString();
+		//startActivity(myIntent); 
+		
+		//get the proper intnet here and the rest falls into place
+		//building = markerMap.get(myIntent.getStringExtra("name");;
 	}
 	
 	/*/////////////////////////////////////////////////
