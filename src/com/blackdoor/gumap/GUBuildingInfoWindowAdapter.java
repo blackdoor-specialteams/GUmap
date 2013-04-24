@@ -10,7 +10,11 @@ import android.view.View;
 import android.widget.TextView;
 
 
-
+/**
+ * adapter that will display the details of the calling marker in the info bubble
+ * @author nfischer3
+ *
+ */
 public class GUBuildingInfoWindowAdapter implements InfoWindowAdapter {
 	MainActivity containingActivity;
 	public GUBuildingInfoWindowAdapter(MainActivity containingActivity){
@@ -19,6 +23,10 @@ public class GUBuildingInfoWindowAdapter implements InfoWindowAdapter {
 	public void setContainer(MainActivity containingActivity){
 		this.containingActivity = containingActivity;
 	}
+	/**
+	 * returns a View that will be displayed in the info bubble 
+	 * view contains basic textual detail
+	 */
 	@Override
 	public View getInfoContents(Marker arg0) {
 		Map<String, GUBuildingMarker> markerMap = containingActivity.getMarkers();

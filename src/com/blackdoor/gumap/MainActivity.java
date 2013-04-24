@@ -55,7 +55,7 @@ public class MainActivity extends Activity{
 	ViewPager mViewPager;
 	GoogleMap guMap;
 	private MapFragment guMapFragment;
-	private HashMap<String,GUBuildingMarker> markers;
+	private ConcurrentSkipListMap<String,GUBuildingMarker> markers;
 	private CSV reader;
 	private Zoom zoom = Zoom.MEDIUM;
 	
@@ -66,6 +66,8 @@ public class MainActivity extends Activity{
 //		super.onResume(savedInstanceState);
 //		
 //	}
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -80,7 +82,10 @@ public class MainActivity extends Activity{
 		setUpMapIfNeeded();
 		postStartSetup();
 	}
-	
+	/**
+	 * 
+	 * @return the map structure with all the markers in it
+	 */
 	public Map<String, GUBuildingMarker> getMarkers(){
 		return markers;
 	}
@@ -104,7 +109,11 @@ public class MainActivity extends Activity{
 //	    map.panTo(lastValidCenter);
 //	});
 	
-	
+	/**
+	 * gonna let kyle comment this one
+	 * @param fileName
+	 * @return
+	 */
 	public ConcurrentSkipListMap gatherBuildingData(String fileName)
 	{
 		ConcurrentSkipListMap<String,GUBuildingMarker> buildingDataMap = new ConcurrentSkipListMap<String,GUBuildingMarker>();
@@ -143,6 +152,10 @@ public class MainActivity extends Activity{
 		}
 		return buildingDataMap;
 	}
+	/**
+	 * move the camera up one zoom level
+	 * @param view
+	 */
 	public void zoomOut(View view) {
     	if(zoom==Zoom.MEDIUM){
     		guMap.animateCamera(CameraUpdateFactory.zoomTo(16));
@@ -153,6 +166,10 @@ public class MainActivity extends Activity{
     		zoom = Zoom.MEDIUM;
     	}
     }
+	/**
+	 * move the camera down one zoom level
+	 * @param view
+	 */
     public void zoomIn(View view) {
     	if(zoom==Zoom.MEDIUM){
     		guMap.animateCamera(CameraUpdateFactory.zoomTo(19));
@@ -163,6 +180,9 @@ public class MainActivity extends Activity{
     		zoom = Zoom.MEDIUM;	
     	}
     }
+    /**
+     * associate guMap with the MapFragment on the layout
+     */
 	private void setUpMapIfNeeded() {
 	    // Do a null check to confirm that we have not already instantiated the map.
 	    if (guMap == null) {
@@ -174,17 +194,29 @@ public class MainActivity extends Activity{
 	        }
 	    }
 	}
-	// guMap will be initialized by the time this is called
+	/**
+	 * any setup that needs to happen after all other methods in OnSetup have been called
+	 * is called last in onSetup  
+	 */
 	private void postStartSetup(){
+		guMap.setMyLocationEnabled(true);
 		guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
 	}
+	/**
+	 * 
+	 * @return the options to create the MapFragment with
+	 */
 	 private GoogleMapOptions loadMapOptions(){
 	    	GoogleMapOptions options = new GoogleMapOptions();
 	    	options.camera(new CameraPosition(new LatLng(47.667454, -117.402309), 17, 0, 0));//coords, zoom, tilt, bearing
 	    	options.zoomGesturesEnabled(false);
 	    	options.zoomControlsEnabled(false);
+	    	options.rotateGesturesEnabled(false);
 	    	return options;
 	    }
+	/**
+	 * adds a map fragment to the activity_main with some preset values
+	 */
 	private void addMapFragment(){
     	guMapFragment = MapFragment.newInstance(loadMapOptions());
         FragmentTransaction fragmentTransaction =
@@ -192,7 +224,10 @@ public class MainActivity extends Activity{
         fragmentTransaction.add(R.id.mapContainer, guMapFragment);
         fragmentTransaction.commit(); 
     }
-	
+	/**
+	 * 
+	 * @return the current zoom level
+	 */
 	public Zoom getZoom(){
 		return zoom;
 	}
