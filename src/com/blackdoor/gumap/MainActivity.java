@@ -46,7 +46,7 @@ public class MainActivity extends Activity{
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-	private GoogleMap guMap;
+	GoogleMap guMap;
 	private MapFragment guMapFragment;
 	private HashMap<String,GUBuildingMarker> markers;
 	private CSV reader;

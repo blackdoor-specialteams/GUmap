@@ -29,7 +29,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class GUBuildingMarker {
-	
+	Marker	closeMarker;
+	Marker	mediumMarker;
 	private MarkerOptions buildingOptions;
 	private String name, description, hours, services, dining, contactInfo;
 	private LatLng coordinates;
@@ -49,9 +50,14 @@ public class GUBuildingMarker {
 		contactInfo = newContactInfo;
 		iconClose = BitmapDescriptorFactory.fromAsset(name + "_CLOSE" + ".png");
 		iconMedium = BitmapDescriptorFactory.fromAsset(name + "_MEDIUM" + ".png");
-		buildingOptions.draggable(false).position(coordinates).title(name).icon(iconMedium);
+		buildingOptions.draggable(false).position(coordinates).title(name);// .icon(iconMedium);
+		mediumMarker = containingActivity.guMap.addMarker(buildingOptions.icon(iconClose).visible(true));
+		closeMarker = containingActivity.guMap.addMarker(buildingOptions.icon(iconClose).visible(false));
+		
 	}
-	
+	/**
+	 * @deprecated dont freaking use this
+	 */
 	public void updateBuildingOptions()
 	{
 		buildingOptions.draggable(false).position(coordinates).title(name);
@@ -63,14 +69,20 @@ public class GUBuildingMarker {
 	{
 		zoomLevel = containingActivity.getZoom();
 		switch (zoomLevel) {
-            case CLOSE:  	buildingOptions.icon(iconClose);
-            buildingOptions.visible(true);
+            case CLOSE:  	
+            	closeMarker.setVisible(true);
+            	mediumMarker.setVisible(false);
                      break;
-            case MEDIUM:	buildingOptions.icon(iconMedium);
-            buildingOptions.visible(true);
+            case MEDIUM:	
+            	closeMarker.setVisible(false);
+            	mediumMarker.setVisible(true);
                      break;
-            case FAR:		buildingOptions.visible(false);
-            default: buildingOptions.icon(iconMedium);
+            case FAR:		
+            	closeMarker.setVisible(false);
+            	mediumMarker.setVisible(false);
+            		break;
+            default: closeMarker.setVisible(false);
+        			 mediumMarker.setVisible(true);
                      break;
         }
 		//buildingOptions.icon(BitmapDescriptorFactory.fromAsset(name + "_" + zoomLevel + ".png"));		
