@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.*;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -56,8 +57,8 @@ public class MainActivity extends Activity{
 	GoogleMap guMap;
 	private MapFragment guMapFragment;
 	private ConcurrentSkipListMap<String,GUBuildingMarker> markers;
-	private CSV reader;
 	private Zoom zoom = Zoom.MEDIUM;
+
 	
 	public static enum Zoom {
 	    CLOSE, MEDIUM, FAR 
@@ -73,7 +74,6 @@ public class MainActivity extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		addMapFragment();
-		
 	}
 	
 	protected void onStart(){
@@ -110,9 +110,9 @@ public class MainActivity extends Activity{
 //	});
 	
 	/**
-	 * gonna let kyle comment this one
-	 * @param fileName
-	 * @return
+	 * Gathers building information from CSV file, creates building markers, stores them in ConcurrentSkipListMap
+	 * @param fileName --> CSV file (GPS_Coords.csv)
+	 * @return ConcurrentSkipListMap containing GUBuildingMarkers
 	 */
 	public ConcurrentSkipListMap gatherBuildingData(String fileName)
 	{
@@ -137,7 +137,7 @@ public class MainActivity extends Activity{
 			
 				String description = fileReader.readLine();
 				description = description.substring(0, description.length() - 8);
-				//System.out.println("name: " + name + "\n lat: " + lat + "\n lng: " + lng   + "\n hours: " + hours + "\n serv: " + services + "\n din: " + dining + "\n cont: " + contactInfo + "\n desc: " + description);
+				System.out.println("name: " + name + "\n latlng: " + coords.toString() + "\n hours: " + hours + "\n serv: " + services + "\n din: " + dining + "\n cont: " + contactInfo + "\n desc: " + description);
 				
 				buildingDataMap.put(name, new GUBuildingMarker(this,name,coords,description,hours,services,dining,contactInfo));
 			
