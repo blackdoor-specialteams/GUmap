@@ -38,8 +38,10 @@ public class GUBuildingMarker {
 	private MainActivity containingActivity;
 	private BitmapDescriptor iconClose;
 	private BitmapDescriptor iconMedium;
-	public GUBuildingMarker(MainActivity containingActivity, String newName, LatLng newCoords, String newDescription, String newHours, String newServices, String newDining, String newContactInfo)
-	{
+
+	public GUBuildingMarker(MainActivity containingActivity, String newName,
+			LatLng newCoords, String newDescription, String newHours,
+			String newServices, String newDining, String newContactInfo) {
 		this.containingActivity = containingActivity;
 		name = newName;
 		coordinates = newCoords;
@@ -50,7 +52,9 @@ public class GUBuildingMarker {
 		contactInfo = newContactInfo;
 		iconClose = BitmapDescriptorFactory.fromAsset(name + "_CLOSE" + ".png");
 		iconMedium = BitmapDescriptorFactory.fromAsset(name + "_MEDIUM" + ".png");
-		buildingOptions.draggable(false).position(coordinates).title(name);// .icon(iconMedium);
+		buildingOptions = new MarkerOptions();
+		buildingOptions.draggable(false).position(newCoords).title(name);// .icon(iconMedium);
+		buildingOptions.snippet(description);
 		mediumMarker = containingActivity.guMap.addMarker(buildingOptions.icon(iconMedium).visible(true));
 		closeMarker = containingActivity.guMap.addMarker(buildingOptions.icon(iconClose).visible(false));
 		

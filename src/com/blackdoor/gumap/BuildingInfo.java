@@ -28,7 +28,7 @@ import android.widget.TextView;
 public class BuildingInfo extends Activity {
 	//Experimental Stuff
 	MainActivity containingActivity;
-	Map<String, GUBuildingMarker> markerMap;
+	//Map<String, GUBuildingMarker> markerMap;
 	//BUILDING
 	private GUBuildingMarker building;
 	//Picture Icon 
@@ -67,7 +67,8 @@ public class BuildingInfo extends Activity {
 	 *_________________________________________________
 	 */
 	public void EstablishBuilding() {
-		markerMap = containingActivity.getMarkers();
+		// not needed
+			//markerMap = containingActivity.getMarkers();
 		
 		//EXAMPLE:::::
 		//Intent myIntent = new Intent(mycurentActivity.this, secondActivity.class);

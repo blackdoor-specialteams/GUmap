@@ -5,14 +5,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentSkipListMap;
 
 import blackdoor.util.CSV;
 
 import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.model.*;
 
 import android.app.ActionBar;
@@ -81,6 +84,7 @@ public class MainActivity extends Activity{
 		//get the map here
 		setUpMapIfNeeded();
 		postStartSetup();
+		
 	}
 	/**
 	 * 
@@ -157,6 +161,10 @@ public class MainActivity extends Activity{
 	 * @param view
 	 */
 	public void zoomOut(View view) {
+		//for (Iterator<Entry<String, GUBuildingMarker>> iterator = markers.entrySet()
+		//		.iterator(); iterator.hasNext();) {
+		//	iterator.next().getValue().updateIcon();
+		//}
     	if(zoom==Zoom.MEDIUM){
     		guMap.animateCamera(CameraUpdateFactory.zoomTo(16));
     		zoom = Zoom.FAR;
@@ -171,6 +179,10 @@ public class MainActivity extends Activity{
 	 * @param view
 	 */
     public void zoomIn(View view) {
+    	//for (Iterator<Entry<String, GUBuildingMarker>> iterator = markers.entrySet()
+		//		.iterator(); iterator.hasNext();) {
+		//	iterator.next().getValue().updateIcon();
+    	//}
     	if(zoom==Zoom.MEDIUM){
     		guMap.animateCamera(CameraUpdateFactory.zoomTo(19));
     		zoom = Zoom.CLOSE;
@@ -200,7 +212,11 @@ public class MainActivity extends Activity{
 	 */
 	private void postStartSetup(){
 		guMap.setMyLocationEnabled(true);
-		guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
+		setupIWCL();
+		GUBuildingMarker test = new GUBuildingMarker(this, "Goller", new LatLng(47.669199,-117.400174), "a building full of nerds", "24/7", "oral", "none", "asdf");
+		guMap.addMarker(test.getBuildingOptions());
+		
+		//guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
 	}
 	/**
 	 * 
@@ -224,6 +240,18 @@ public class MainActivity extends Activity{
         fragmentTransaction.add(R.id.mapContainer, guMapFragment);
         fragmentTransaction.commit(); 
     }
+	
+	private void setupIWCL(){
+		guMap.setOnInfoWindowClickListener(
+				new OnInfoWindowClickListener(){
+					public void onInfoWindowClick(Marker marker){
+						GUBuildingMarker info = markers.get(marker.getTitle());
+						// create intent, pass info to new BuildingInfo instance
+					}
+				}
+			);
+	}
+	
 	/**
 	 * 
 	 * @return the current zoom level
