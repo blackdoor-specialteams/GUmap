@@ -118,7 +118,7 @@ public class MainActivity extends Activity{
 	
 	/**
 	 * Gathers building information from CSV file, creates building markers, stores them in ConcurrentSkipListMap
-	 * @param fileName --> CSV file (GPS_Coords.csv)
+	 * @param fileName in assets folder --> CSV file (GPS_Coords.csv)
 	 * @return ConcurrentSkipListMap containing GUBuildingMarkers
 	 */
 	public ConcurrentSkipListMap<String, GUBuildingMarker> gatherBuildingData(String assetName)
