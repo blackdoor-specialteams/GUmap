@@ -222,8 +222,8 @@ public class MainActivity extends Activity{
 	private void postStartSetup(){
 		guMap.setMyLocationEnabled(true);
 		setupIWCL();
-		GUBuildingMarker test = new GUBuildingMarker(this, "Goller", new LatLng(47.669199,-117.400174), "a building full of nerds", "24/7", "oral", "none", "asdf");
-		guMap.addMarker(test.getBuildingOptions());
+		//GUBuildingMarker test = new GUBuildingMarker(this, "Goller", new LatLng(47.669199,-117.400174), "a building full of nerds", "24/7", "oral", "none", "asdf");
+		//guMap.addMarker(test.getBuildingOptions());
 		addMarkers();
 		//guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
 	}
