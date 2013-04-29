@@ -27,7 +27,6 @@ import android.widget.TextView;
 
 public class BuildingInfo extends Activity {
 	//Experimental Stuff
-	MainActivity containingActivity;
 	//Map<String, GUBuildingMarker> markerMap;
 	//BUILDING
 	private GUBuildingMarker building;
@@ -48,10 +47,14 @@ public class BuildingInfo extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_building_info);
+		
+
 		EstablishBuilding();
 		PopulateText();
-		setContentView(R.layout.activity_building_info);
+		
 	}
 
 	@Override
@@ -77,6 +80,10 @@ public class BuildingInfo extends Activity {
 		
 		//get the proper intnet here and the rest falls into place
 		//building = markerMap.get(myIntent.getStringExtra("name");;
+		
+		Bundle extras = getIntent().getExtras();
+		building = extras.getParcelable("key_build");
+		
 	}
 	
 	/*/////////////////////////////////////////////////

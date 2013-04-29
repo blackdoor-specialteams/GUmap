@@ -12,6 +12,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -28,7 +30,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class GUBuildingMarker {
+public class GUBuildingMarker implements Parcelable{
 	Marker	closeMarker;
 	Marker	mediumMarker;
 	private MarkerOptions buildingOptions;
@@ -201,6 +203,18 @@ public class GUBuildingMarker {
 	public void setContactInfo(String contactInfo)
 	{
 		this.contactInfo = contactInfo;
+	}
+	
+///////////////////////////////////////////////////////////////////////////
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	//actually fuckit, we don't need to set the zoomLevel for each marker individually

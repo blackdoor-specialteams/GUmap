@@ -24,6 +24,7 @@ import com.google.android.gms.maps.model.*;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -256,8 +257,16 @@ public class MainActivity extends Activity{
 		guMap.setOnInfoWindowClickListener(
 				new OnInfoWindowClickListener(){
 					public void onInfoWindowClick(Marker marker){
+						
 						GUBuildingMarker info = markers.get(marker.getTitle());
-						// create intent, pass info to new BuildingInfo instance
+						
+						// Captain Jean-luc Picard of the USS Enterprise
+						Bundle b = new Bundle();
+						b.putParcelable("key_build", info);
+						 
+						Intent infointent = new Intent(MainActivity.this,BuildingInfo.class);
+						infointent.putExtras(b);
+						startActivity(infointent); 
 					}
 				}
 			);
