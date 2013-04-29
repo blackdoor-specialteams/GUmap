@@ -118,7 +118,7 @@ public class MainActivity extends Activity{
 	 * @param fileName --> CSV file (GPS_Coords.csv)
 	 * @return ConcurrentSkipListMap containing GUBuildingMarkers
 	 */
-	public ConcurrentSkipListMap gatherBuildingData(String fileName)
+	public ConcurrentSkipListMap<String, GUBuildingMarker> gatherBuildingData(String fileName)
 	{
 		ConcurrentSkipListMap<String,GUBuildingMarker> buildingDataMap = new ConcurrentSkipListMap<String,GUBuildingMarker>();
 		StringTokenizer tokenizer;
@@ -144,7 +144,6 @@ public class MainActivity extends Activity{
 				System.out.println("name: " + name + "\n latlng: " + coords.toString() + "\n hours: " + hours + "\n serv: " + services + "\n din: " + dining + "\n cont: " + contactInfo + "\n desc: " + description);
 				
 				buildingDataMap.put(name, new GUBuildingMarker(this,name,coords,description,hours,services,dining,contactInfo));
-			
 			}
 			
 		} catch (FileNotFoundException e) {
@@ -240,7 +239,9 @@ public class MainActivity extends Activity{
         fragmentTransaction.add(R.id.mapContainer, guMapFragment);
         fragmentTransaction.commit(); 
     }
-	
+	private void addMarkers(){
+		markers = gatherBuildingData("building-info/GPS_Coords.csv");
+	}
 	private void setupIWCL(){
 		guMap.setOnInfoWindowClickListener(
 				new OnInfoWindowClickListener(){
