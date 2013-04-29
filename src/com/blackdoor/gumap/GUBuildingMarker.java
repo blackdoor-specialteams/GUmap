@@ -7,6 +7,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class GUBuildingMarker implements Parcelable{
+	private static final String TAG = "GUbuildingMarker";
 	Marker	closeMarker;
 	Marker	mediumMarker;
 	private MarkerOptions buildingOptions;
@@ -53,6 +54,18 @@ public class GUBuildingMarker implements Parcelable{
 		//closeMarker = containingActivity.guMap.addMarker(buildingOptions.icon(iconClose).visible(false));
 		
 	}
+	
+	//Only needed for the InfoActivity
+	//Reconstructs like a boss
+	public GUBuildingMarker(Parcel source){
+		name = source.readString();
+		description = source.readString();
+		contactInfo = source.readString();
+		hours = source.readString();
+		services = source.readString();
+		dining = source.readString();
+
+  }
 	
 	private void addMarkers(){
 		try {
@@ -189,9 +202,26 @@ public class GUBuildingMarker implements Parcelable{
 	}
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		// TODO Auto-generated method stub
+		Log.v(TAG, "writeToParcel..."+ flags);
 		
+	      dest.writeString(name);
+	      dest.writeString(description);
+	      dest.writeString(contactInfo);
+	      dest.writeString(hours);
+	      dest.writeString(services);
+	      dest.writeString(dining);
 	}
+	
+	public class GUBCreator implements Parcelable.Creator<GUBuildingMarker> {
+	      public GUBuildingMarker createFromParcel(Parcel source) {
+	            return new GUBuildingMarker(source);
+	      }
+	      public GUBuildingMarker[] newArray(int size) {
+	            return new GUBuildingMarker[size];
+	      }
+	}
+
+
 	
 	//actually fuckit, we don't need to set the zoomLevel for each marker individually
 	// public void setZoom(Zoom zLevel)
