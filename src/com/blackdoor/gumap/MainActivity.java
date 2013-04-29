@@ -1,14 +1,17 @@
 package com.blackdoor.gumap;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentSkipListMap;
 
@@ -118,18 +121,22 @@ public class MainActivity extends Activity{
 	 * @param fileName --> CSV file (GPS_Coords.csv)
 	 * @return ConcurrentSkipListMap containing GUBuildingMarkers
 	 */
-	public ConcurrentSkipListMap<String, GUBuildingMarker> gatherBuildingData(String fileName)
+	public ConcurrentSkipListMap<String, GUBuildingMarker> gatherBuildingData(String assetName)
 	{
 		ConcurrentSkipListMap<String,GUBuildingMarker> buildingDataMap = new ConcurrentSkipListMap<String,GUBuildingMarker>();
 		StringTokenizer tokenizer;
 		String columnHeaders;
+		AssetManager assetManager = getAssets();
+		InputStream input;
 
 		try {
-			BufferedReader fileReader = new BufferedReader(new FileReader(fileName));
-			columnHeaders = fileReader.readLine();
-			while(fileReader.ready())
+			//BufferedReader fileReader = new BufferedReader(new FileReader(fileName));
+			input = assetManager.open(assetName);
+			Scanner fileReader = new Scanner(input);
+			columnHeaders = fileReader.nextLine();//.readLine();
+			while(fileReader.hasNext())//.ready())
 			{
-				String line = fileReader.readLine();
+				String line = fileReader.nextLine();//.readLine();
 				tokenizer = new StringTokenizer(line);
 				
 				String name = tokenizer.nextToken(",");
@@ -139,18 +146,18 @@ public class MainActivity extends Activity{
 				String dining = tokenizer.nextToken(",");
 				String contactInfo = tokenizer.nextToken(",");
 			
-				String description = fileReader.readLine();
+				String description = fileReader.nextLine();//.readLine();
 				description = description.substring(0, description.length() - 8);
 				System.out.println("name: " + name + "\n latlng: " + coords.toString() + "\n hours: " + hours + "\n serv: " + services + "\n din: " + dining + "\n cont: " + contactInfo + "\n desc: " + description);
 				
 				buildingDataMap.put(name, new GUBuildingMarker(this,name,coords,description,hours,services,dining,contactInfo));
 			}
-			
+			input.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("Error: File " + fileName + "not found");
+			System.err.println("Error: File " + assetName + "not found");
 			System.exit(0);
 		} catch (IOException e) {
-			System.out.println("Error: Input from file mishandled");
+			System.err.println("Error: Input from file mishandled");
 			System.exit(0);
 		}
 		return buildingDataMap;
@@ -160,11 +167,9 @@ public class MainActivity extends Activity{
 	 * @param view
 	 */
 	public void zoomOut(View view) {
-		//for (Iterator<Entry<String, GUBuildingMarker>> iterator = markers.entrySet()
-		//		.iterator(); iterator.hasNext();) {
-		//	iterator.next().getValue().updateIcon();
-		//}
-    	if(zoom==Zoom.MEDIUM){
+		
+		 if(zoom==Zoom.MEDIUM){
+			 
     		guMap.animateCamera(CameraUpdateFactory.zoomTo(16));
     		zoom = Zoom.FAR;
     	}
@@ -172,16 +177,17 @@ public class MainActivity extends Activity{
     		guMap.animateCamera(CameraUpdateFactory.zoomTo(17));
     		zoom = Zoom.MEDIUM;
     	}
+		 for (Iterator<Entry<String, GUBuildingMarker>> iterator = markers.entrySet()
+						.iterator(); iterator.hasNext();) {
+					iterator.next().getValue().updateIcon();
+				}
     }
 	/**
 	 * move the camera down one zoom level
 	 * @param view
 	 */
     public void zoomIn(View view) {
-    	//for (Iterator<Entry<String, GUBuildingMarker>> iterator = markers.entrySet()
-		//		.iterator(); iterator.hasNext();) {
-		//	iterator.next().getValue().updateIcon();
-    	//}
+    	
     	if(zoom==Zoom.MEDIUM){
     		guMap.animateCamera(CameraUpdateFactory.zoomTo(19));
     		zoom = Zoom.CLOSE;
@@ -189,6 +195,10 @@ public class MainActivity extends Activity{
     	else if(zoom==Zoom.FAR){
     		guMap.animateCamera(CameraUpdateFactory.zoomTo(17));
     		zoom = Zoom.MEDIUM;	
+    	}
+    	for (Iterator<Entry<String, GUBuildingMarker>> iterator = markers.entrySet()
+				.iterator(); iterator.hasNext();) {
+			iterator.next().getValue().updateIcon();
     	}
     }
     /**
@@ -214,7 +224,7 @@ public class MainActivity extends Activity{
 		setupIWCL();
 		GUBuildingMarker test = new GUBuildingMarker(this, "Goller", new LatLng(47.669199,-117.400174), "a building full of nerds", "24/7", "oral", "none", "asdf");
 		guMap.addMarker(test.getBuildingOptions());
-		
+		addMarkers();
 		//guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
 	}
 	/**

@@ -55,9 +55,7 @@ public class GUBuildingMarker {
 		buildingOptions = new MarkerOptions();
 		buildingOptions.draggable(false).position(newCoords).title(name);// .icon(iconMedium);
 		buildingOptions.snippet(description);
-		mediumMarker = containingActivity.guMap.addMarker(buildingOptions.icon(iconMedium).visible(true));
-		closeMarker = containingActivity.guMap.addMarker(buildingOptions.icon(iconClose).visible(false));
-		
+		addMarkers();		
 	}
 	public GUBuildingMarker(MainActivity containingActivity) {
 		this.containingActivity = containingActivity;
@@ -76,6 +74,21 @@ public class GUBuildingMarker {
 		//mediumMarker = containingActivity.guMap.addMarker(buildingOptions.icon(iconMedium).visible(true));
 		//closeMarker = containingActivity.guMap.addMarker(buildingOptions.icon(iconClose).visible(false));
 		
+	}
+	
+	private void addMarkers(){
+		try {
+			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
+					.icon(iconMedium).visible(true));
+			closeMarker = containingActivity.guMap.addMarker(buildingOptions
+					.icon(iconClose).visible(false));
+		} catch (Exception e) {
+			System.err.println(e);
+			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
+					.icon(null).visible(true));
+			closeMarker = containingActivity.guMap.addMarker(buildingOptions
+					.icon(null).visible(false));
+		}
 	}
 	/**
 	 * @deprecated dont freaking use this
