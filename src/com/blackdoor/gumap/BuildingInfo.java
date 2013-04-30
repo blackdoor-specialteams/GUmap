@@ -87,12 +87,12 @@ public class BuildingInfo extends Activity {
 		//building =  extras.getParcelable("key_build");
 		
 		Intent intent = getIntent();
-		building.setName(intent.getExtras().getString("name"));
-		building.setDescription(intent.getExtras().getString("description"));
-		building.setHours(intent.getExtras().getString("hours"));
-		building.setServices(intent.getExtras().getString("services"));
-		building.setDining(intent.getExtras().getString("dining"));
-		building.setContactInfo(intent.getExtras().getString("contact"));
+		building.setName(intent.getStringExtra("name"));
+		building.setDescription(intent.getStringExtra("description"));
+		building.setHours(intent.getStringExtra("hours"));
+		building.setServices(intent.getStringExtra("services"));
+		building.setDining(intent.getStringExtra("dining"));
+		building.setContactInfo(intent.getStringExtra("contact"));
 		//building.setSymbol(intent.getExtras().getString("symbol"));
 	}
 	
