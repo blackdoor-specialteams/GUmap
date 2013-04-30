@@ -6,8 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -42,6 +44,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -73,6 +79,7 @@ public class MainActivity extends Activity {
 	private ConcurrentSkipListMap<String, GUBuildingMarker> markers;
 	private Zoom zoom = Zoom.MEDIUM;
 	private Handler mHandler;
+	private Spinner bldgSpinner;
 
 	public static enum Zoom {
 		CLOSE, MEDIUM, FAR
@@ -88,6 +95,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		addMapFragment();
+		bldgSpinner = (Spinner) findViewById(R.id.bldgSpinner);
 	}
 
 	protected void onStart() {
@@ -96,6 +104,39 @@ public class MainActivity extends Activity {
 		setUpMapIfNeeded();
 		postStartSetup();
 
+	}
+	private void populateSpinner(){
+		ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item);
+		
+		List<String> bldgArray = new ArrayList<String>();
+		bldgArray.add("Select Building");
+		for(Entry<String, GUBuildingMarker> entry : markers.entrySet()){
+			bldgArray.add(entry.getValue().getName());
+		}
+		adapter.addAll(bldgArray);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		bldgSpinner.setAdapter(adapter);
+	}
+	private void setSpinnerListener(){
+		bldgSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int pos, long id) {
+				if (parent.getItemAtPosition(pos) != "Select Building") {
+					GUBuildingMarker marker = markers.get(parent
+							.getItemAtPosition(pos));
+					LatLng dest = marker.getCoordinates();
+					guMap.animateCamera(CameraUpdateFactory.newLatLng(dest));
+					if (zoom == Zoom.CLOSE)
+						marker.closeMarker.showInfoWindow();
+					if (zoom == Zoom.MEDIUM)
+						marker.mediumMarker.showInfoWindow();
+				}
+			}
+
+		    public void onNothingSelected(AdapterView<?> parent) {
+
+		    }
+		});
 	}
 	
 	private void checkBoundaries(){
@@ -279,6 +320,8 @@ public class MainActivity extends Activity {
 		setUpHandler();
 		mHandler.sendEmptyMessage(0);
 		guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
+		populateSpinner();
+		setSpinnerListener();
 	}
 
 	/**
