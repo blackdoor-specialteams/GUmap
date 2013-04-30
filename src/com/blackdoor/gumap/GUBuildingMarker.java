@@ -12,18 +12,19 @@ public class GUBuildingMarker implements Parcelable{
 	Marker	closeMarker;
 	Marker	mediumMarker;
 	private MarkerOptions buildingOptions;
-	private String name, description, hours, services, dining, contactInfo;
+	private String name, abbrev,description, hours, services, dining, contactInfo;
 	private LatLng coordinates;
 	private Zoom zoomLevel = Zoom.MEDIUM;
 	private MainActivity containingActivity;
 	private BitmapDescriptor iconClose;
 	private BitmapDescriptor iconMedium;
 
-	public GUBuildingMarker(MainActivity containingActivity, String newName,
+	public GUBuildingMarker(MainActivity containingActivity, String newName, String newAbbrev,
 			LatLng newCoords, String newDescription, String newHours,
 			String newServices, String newDining, String newContactInfo) {
 		this.containingActivity = containingActivity;
 		name = newName;
+		abbrev=newAbbrev;
 		coordinates = newCoords;
 		description = newDescription;
 		hours = newHours;
@@ -40,6 +41,7 @@ public class GUBuildingMarker implements Parcelable{
 	public GUBuildingMarker(MainActivity containingActivity) {
 		this.containingActivity = containingActivity;
 		name = "";
+		abbrev="";
 		coordinates = new LatLng(0,0);
 		description = "";
 		hours = "";
@@ -120,6 +122,10 @@ public class GUBuildingMarker implements Parcelable{
 	{
 		return(name);
 	}
+	public String getAbbrev()
+	{
+		return(abbrev);
+	}
 	
 	public LatLng getCoordinates()
 	{
@@ -164,6 +170,10 @@ public class GUBuildingMarker implements Parcelable{
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+	public void setAbbrev(String abbrev)
+	{
+		this.abbrev=abbrev;
 	}
 	
 	public void setCoordinates(LatLng coords)
