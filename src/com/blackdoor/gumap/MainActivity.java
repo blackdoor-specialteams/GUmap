@@ -180,6 +180,7 @@ public class MainActivity extends Activity {
 				String services = tokenizer.nextToken(",");
 				String dining = tokenizer.nextToken(",");
 				String contactInfo = tokenizer.nextToken(",");
+				String abbrev = tokenizer.nextToken(",");
 
 				String description = fileReader.nextLine();// .readLine();
 				description = description
@@ -191,7 +192,7 @@ public class MainActivity extends Activity {
 								+ "\n cont: " + contactInfo + "\n desc: "
 								+ description);
 
-				buildingDataMap.put(name, new GUBuildingMarker(this, name,
+				buildingDataMap.put(name, new GUBuildingMarker(this, name, abbrev,
 						coords, description, hours, services, dining,
 						contactInfo));
 			}
@@ -199,7 +200,7 @@ public class MainActivity extends Activity {
 		} catch (FileNotFoundException e) {
 			System.err.println("Error: File " + assetName + "not found");
 			System.exit(0);
-		} catch (IOException e) {
+		} catch (IOException e) {S
 			System.err.println("Error: Input from file mishandled");
 			System.exit(0);
 		}
