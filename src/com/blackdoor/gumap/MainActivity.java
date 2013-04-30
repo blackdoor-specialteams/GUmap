@@ -105,12 +105,14 @@ public class MainActivity extends Activity {
 	}
 	private void populateSpinner(){
 		ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
 		List<String> bldgArray = new ArrayList<String>();
-		for (Iterator<Entry<String, GUBuildingMarker>> iterator = markers.entrySet()
-				.iterator(); iterator.hasNext();) {
-			
+		for(Entry<String, GUBuildingMarker> entry : markers.entrySet()){
+			bldgArray.add(entry.getValue().getName());
 		}
+		adapter.addAll(bldgArray);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		bldgSpinner.setAdapter(adapter);
 		
 	}
 	
@@ -295,6 +297,7 @@ public class MainActivity extends Activity {
 		setUpHandler();
 		mHandler.sendEmptyMessage(0);
 		guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
+		populateSpinner();
 	}
 
 	/**
