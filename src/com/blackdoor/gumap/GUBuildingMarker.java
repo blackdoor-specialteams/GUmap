@@ -81,7 +81,8 @@ public class GUBuildingMarker implements Parcelable{
 			closeMarker = containingActivity.guMap.addMarker(buildingOptions
 					.icon(null).visible(false));
 		}
-	Par
+		}
+
 	/**
 	 * @deprecated dont freaking use this
 	 */

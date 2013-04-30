@@ -277,7 +277,7 @@ public class MainActivity extends Activity {
 		addMarkers();
 		setUpHandler();
 		mHandler.sendEmptyMessage(0);
-		// guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
+		guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
 	}
 
 	/**

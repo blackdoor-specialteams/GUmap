@@ -7,6 +7,7 @@ import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
 import com.google.android.gms.maps.model.Marker;
 
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -31,8 +32,10 @@ public class GUBuildingInfoWindowAdapter implements InfoWindowAdapter {
 	public View getInfoContents(Marker arg0) {
 		Map<String, GUBuildingMarker> markerMap = containingActivity.getMarkers();
 		GUBuildingMarker marker = markerMap.get(arg0.getTitle());
+		LinearLayout output = new LinearLayout(containingActivity);
+		//output.
 		TextView newText = new TextView(containingActivity);
-		newText.setText(marker.getName()+"\n"+marker.getDescription()+marker.getHours()+"\n"+marker.getDescription());
+		newText.setText(marker.getName()+"\n"+marker.getDescription()+"\n" +marker.getHours());
 		return newText;
 	}
 	@Override
