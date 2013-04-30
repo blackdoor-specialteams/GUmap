@@ -215,24 +215,23 @@ public class GUBuildingMarker implements Parcelable{
 	
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-
-		Log.v(TAG, "writeToParcel..."+ flags);
-	      dest.writeString(name);
-	      dest.writeString(description);
-	      dest.writeString(contactInfo);
-	      dest.writeString(hours);
-	      dest.writeString(services);
-	      dest.writeString(dining);
+		dest.writeStringArray(new String[] {this.name,
+				this.description,
+				this.contactInfo,
+				this.hours,
+				this.services,
+				this.dining});
 	}
 	
-	public class GUBCreator implements Parcelable.Creator<GUBuildingMarker> {
+	public static final Parcelable.Creator Creator = new Parcelable.Creator() {
 	      public GUBuildingMarker createFromParcel(Parcel source) {
 	            return new GUBuildingMarker(source);
 	      }
 	      public GUBuildingMarker[] newArray(int size) {
 	            return new GUBuildingMarker[size];
 	      }
-	}
+	};
+
 
 
 	
