@@ -82,9 +82,7 @@ public class BuildingInfo extends Activity {
 		//building = markerMap.get(myIntent.getStringExtra("name");;
 		
 		Bundle extras = getIntent().getExtras();
-		GUBuildingMarker tmpB =  extras.getParcelable("key_build");
-		building = tmpB;
-		
+		building =  extras.getParcelable("key_build");
 	}
 	
 	/*/////////////////////////////////////////////////
