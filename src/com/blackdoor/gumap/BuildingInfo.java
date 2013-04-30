@@ -27,10 +27,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BuildingInfo extends Activity {
-	//Experimental Stuff
-	//Map<String, GUBuildingMarker> markerMap;
-	//BUILDING
-	//private GUBuildingMarker building;
 	//Local Stuff
 	private String name;
 	private String des;
@@ -38,6 +34,8 @@ public class BuildingInfo extends Activity {
 	private String services;
 	private String dining;
 	private String contact;
+	//We be needing this
+	private String csv_null = "null";
 	//Picture Icon 
 	private ImageView Bicon;
 	//Text Fields 
@@ -55,14 +53,10 @@ public class BuildingInfo extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_building_info);
-		
-
 		EstablishBuilding();
 		PopulateText();
-		
 	}
 
 	@Override
@@ -111,7 +105,7 @@ public class BuildingInfo extends Activity {
 	 *\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	 */
 	public void PopulateText() {
-		setBuidlingICON();
+		//setBuidlingICON();
 		setBuildingNameTEXT();
 		setBuildingDescriptionTEXT();
 		setBuildingHoursTEXT();
@@ -132,7 +126,7 @@ public class BuildingInfo extends Activity {
 	//HOURS
 	private void setBuildingHoursTEXT() {
 		buildingHours = (TextView) findViewById(R.id.Bdining);
-		if (!hours.equals("")) {
+		if (!hours.equals(csv_null)) {
 			buildingHours.setText(hours);
 		} else {
 			divHours = (TextView) findViewById(R.id.divider_hours);
@@ -143,7 +137,7 @@ public class BuildingInfo extends Activity {
 	//SERVICES
 	private void setBuildingServicesTEXT() {
 		buildingServices = (TextView) findViewById(R.id.Bservice);
-		if (!services.equals("")) {
+		if (!services.equals(csv_null)) {
 
 			buildingServices.setText(services);
 		} else {
@@ -155,7 +149,7 @@ public class BuildingInfo extends Activity {
 	//DINING
 	private void setBuildingdiningTEXT() {
 		buildingDining = (TextView) findViewById(R.id.Bdining);
-		if (!dining.equals("")) {
+		if (!dining.equals(csv_null)) {
 
 			buildingDining.setText(dining);
 		} else {
@@ -167,7 +161,7 @@ public class BuildingInfo extends Activity {
 	//CONTACT
 	private void setBuildingContactTEXT() {
 		buildingContact = (TextView) findViewById(R.id.Bcontact);
-		if (!contact.equals("")) {
+		if (!contact.equals(csv_null)) {
 			buildingContact.setText(contact);
 		} else {
 			divContact = (TextView) findViewById(R.id.divider_contact);
