@@ -1,29 +1,25 @@
 package com.blackdoor.gumap;
 
-import java.io.BufferedReader;
-import java.io.File;
+
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
+
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentSkipListMap;
 
-import blackdoor.util.CSV;
-
 import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.model.*;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -31,24 +27,15 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
+
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	// extends FragmentActivity implements
@@ -68,7 +55,7 @@ public class MainActivity extends Activity {
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
-	private static final LatLng NEBOUND = new LatLng(47.671781, -117.393352);
+	private static final LatLng NEBOUND = new LatLng(47.670597, -117.393336);
 	private static final LatLng SWBOUND = new LatLng(47.661283, -117.411052);
 	private static final LatLngBounds MAPBOUNDARY = new LatLngBounds(SWBOUND, NEBOUND);
 	private LatLng lastCenter = new LatLng(47.667454, -117.402309);
