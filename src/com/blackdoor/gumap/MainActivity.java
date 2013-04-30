@@ -42,6 +42,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -73,6 +75,7 @@ public class MainActivity extends Activity {
 	private ConcurrentSkipListMap<String, GUBuildingMarker> markers;
 	private Zoom zoom = Zoom.MEDIUM;
 	private Handler mHandler;
+	private Spinner bldgSpinner;
 
 	public static enum Zoom {
 		CLOSE, MEDIUM, FAR
@@ -88,6 +91,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		addMapFragment();
+		bldgSpinner = (Spinner) findViewById(R.id.bldgSpinner);
 	}
 
 	protected void onStart() {
@@ -96,6 +100,9 @@ public class MainActivity extends Activity {
 		setUpMapIfNeeded();
 		postStartSetup();
 
+	}
+	private void populateSpinner(){
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter<T>.createFromResource(context, textArrayResId, textViewResId)
 	}
 	
 	private void checkBoundaries(){
