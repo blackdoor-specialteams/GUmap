@@ -72,7 +72,6 @@ public class MainActivity extends Activity {
 	private static final LatLng SWBOUND = new LatLng(47.661283, -117.411052);
 	private static final LatLngBounds MAPBOUNDARY = new LatLngBounds(SWBOUND, NEBOUND);
 	private LatLng lastCenter = new LatLng(47.667454, -117.402309);
-	private LatLng preLastCenter = new LatLng(47.667454, -117.402309);
 	ViewPager mViewPager;
 	GoogleMap guMap;
 	private MapFragment guMapFragment;
@@ -164,9 +163,10 @@ public class MainActivity extends Activity {
 	
 	private void checkBoundaries(){
 		LatLng tempCenter = guMap.getCameraPosition().target;
-		LatLngBounds visibleBounds = guMap.getProjection().getVisibleRegion().latLngBounds;
-        if(!MAPBOUNDARY.contains(visibleBounds.northeast) || !MAPBOUNDARY.contains(visibleBounds.southwest)){
-            guMap.moveCamera(CameraUpdateFactory.newLatLng(lastCenter));
+		//LatLngBounds visibleBounds = guMap.getProjection().getVisibleRegion().latLngBounds;
+        //if(!MAPBOUNDARY.contains(visibleBounds.northeast) || !MAPBOUNDARY.contains(visibleBounds.southwest)){
+          if(!MAPBOUNDARY.contains(tempCenter)){
+			guMap.moveCamera(CameraUpdateFactory.newLatLng(lastCenter));
             //guMap.animateCamera(CameraUpdateFactory.newLatLng(lastCenter));
         }
         else
