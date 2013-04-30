@@ -30,7 +30,14 @@ public class BuildingInfo extends Activity {
 	//Experimental Stuff
 	//Map<String, GUBuildingMarker> markerMap;
 	//BUILDING
-	private GUBuildingMarker building;
+	//private GUBuildingMarker building;
+	//Local Stuff
+	private String name;
+	private String des;
+	private String hours;
+	private String services;
+	private String dining;
+	private String contact;
 	//Picture Icon 
 	private ImageView Bicon;
 	//Text Fields 
@@ -87,12 +94,12 @@ public class BuildingInfo extends Activity {
 		//building =  extras.getParcelable("key_build");
 		
 		Intent intent = getIntent();
-		building.setName(intent.getStringExtra("name"));
-		building.setDescription(intent.getStringExtra("description"));
-		building.setHours(intent.getStringExtra("hours"));
-		building.setServices(intent.getStringExtra("services"));
-		building.setDining(intent.getStringExtra("dining"));
-		building.setContactInfo(intent.getStringExtra("contact"));
+		name = intent.getStringExtra("name");
+		des = intent.getStringExtra("description");
+		hours = intent.getStringExtra("hours");
+		services = intent.getStringExtra("services");
+		dining = intent.getStringExtra("dining");
+		contact = intent.getStringExtra("contact");
 		//building.setSymbol(intent.getExtras().getString("symbol"));
 	}
 	
@@ -115,18 +122,18 @@ public class BuildingInfo extends Activity {
 	//NAME
 	private void setBuildingNameTEXT() {
 		buildingName = (TextView) findViewById(R.id.Bname);
-		buildingName.setText(building.getName());
+		buildingName.setText(name);
 	}
 	//DESCRIPTION
 	private void setBuildingDescriptionTEXT() {
 		buildingDes = (TextView) findViewById(R.id.Bdescription);
-		buildingDes.setText(building.getDescription());
+		buildingDes.setText(des);
 	}
 	//HOURS
 	private void setBuildingHoursTEXT() {
 		buildingHours = (TextView) findViewById(R.id.Bdining);
-		if (!building.getHours().equals("")) {
-			buildingHours.setText(building.getHours());
+		if (!hours.equals("")) {
+			buildingHours.setText(hours);
 		} else {
 			divHours = (TextView) findViewById(R.id.divider_hours);
 			buildingHours.setVisibility(View.GONE);
@@ -136,9 +143,9 @@ public class BuildingInfo extends Activity {
 	//SERVICES
 	private void setBuildingServicesTEXT() {
 		buildingServices = (TextView) findViewById(R.id.Bservice);
-		if (!building.getServices().equals("")) {
+		if (!services.equals("")) {
 
-			buildingServices.setText(building.getServices());
+			buildingServices.setText(services);
 		} else {
 			divServices = (TextView) findViewById(R.id.divider_service);
 			buildingServices.setVisibility(View.GONE);
@@ -148,9 +155,9 @@ public class BuildingInfo extends Activity {
 	//DINING
 	private void setBuildingdiningTEXT() {
 		buildingDining = (TextView) findViewById(R.id.Bdining);
-		if (!building.getDining().equals("")) {
+		if (!dining.equals("")) {
 
-			buildingDining.setText(building.getDining());
+			buildingDining.setText(dining);
 		} else {
 			divDining = (TextView) findViewById(R.id.divider_contact);
 			buildingDining.setVisibility(View.GONE);
@@ -160,8 +167,8 @@ public class BuildingInfo extends Activity {
 	//CONTACT
 	private void setBuildingContactTEXT() {
 		buildingContact = (TextView) findViewById(R.id.Bcontact);
-		if (!building.getContactInfo().equals("")) {
-			buildingContact.setText(building.getContactInfo());
+		if (!contact.equals("")) {
+			buildingContact.setText(contact);
 		} else {
 			divContact = (TextView) findViewById(R.id.divider_contact);
 			divContact.setVisibility(View.GONE);
@@ -170,7 +177,7 @@ public class BuildingInfo extends Activity {
 	}
 ////////////ICON//////////////////////////////////////////////
 	private void setBuidlingICON() {
-		int imageResource = getResources().getIdentifier(building.getName(),
+		int imageResource = getResources().getIdentifier(name,
 				null, getPackageName());
 
 		Bicon = (ImageView) findViewById(R.id.BIcon);

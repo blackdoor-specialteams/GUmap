@@ -311,6 +311,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void setupIWCL() {
+		final MainActivity temp = this;
 		guMap.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
 			public void onInfoWindowClick(Marker marker) {
 
@@ -320,7 +321,7 @@ public class MainActivity extends Activity {
 				//Bundle b = new Bundle();
 				//b.putParcelable("key_build", info);
 
-				Intent infointent = new Intent(MainActivity.this,BuildingInfo.class);
+				Intent infointent = new Intent(temp,BuildingInfo.class);
 				infointent.putExtra("name",info.getName());
 				infointent.putExtra("description",info.getDescription());
 				infointent.putExtra("hours",info.getHours());
