@@ -31,8 +31,8 @@ public class GUBuildingMarker implements Parcelable{
 		services = newServices;
 		dining = newDining;
 		contactInfo = newContactInfo;
-		iconClose = BitmapDescriptorFactory.fromAsset(name + "_CLOSE" + ".png");
-		iconMedium = BitmapDescriptorFactory.fromAsset(name + "_MEDIUM" + ".png");
+		iconClose = BitmapDescriptorFactory.fromAsset(abbrev + "_CLOSE" + ".png");
+		iconMedium = BitmapDescriptorFactory.fromAsset(abbrev + "_MEDIUM" + ".png");
 		buildingOptions = new MarkerOptions();
 		buildingOptions.draggable(false).position(newCoords).title(name);// .icon(iconMedium);
 		buildingOptions.snippet(description);
