@@ -6,8 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -102,7 +104,10 @@ public class MainActivity extends Activity {
 
 	}
 	private void populateSpinner(){
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter<T>.createFromResource(context, textArrayResId, textViewResId)
+		ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		List<String> bldgArray = new ArrayList<String>();
+		
 	}
 	
 	private void checkBoundaries(){
