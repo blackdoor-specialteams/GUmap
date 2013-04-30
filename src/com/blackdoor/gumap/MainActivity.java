@@ -200,7 +200,7 @@ public class MainActivity extends Activity {
 		} catch (FileNotFoundException e) {
 			System.err.println("Error: File " + assetName + "not found");
 			System.exit(0);
-		} catch (IOException e) {S
+		} catch (IOException e) {
 			System.err.println("Error: Input from file mishandled");
 			System.exit(0);
 		}
