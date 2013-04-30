@@ -100,13 +100,32 @@ public class MainActivity extends Activity {
 
 	protected void onStart() {
 		super.onStart();
-		// get the map here
 		setUpMapIfNeeded();
 		postStartSetup();
-
 	}
+	/**
+	 * any setup that needs to happen after all other methods in OnSetup have
+	 * been called is called last in onSetup
+	 */
+	private void postStartSetup() {
+		guMap.setMyLocationEnabled(true);
+		setupIWCL();
+		// GUBuildingMarker test = new GUBuildingMarker(this, "Goller", new
+		// LatLng(47.669199,-117.400174), "a building full of nerds", "24/7",
+		// "oral", "none", "asdf");
+		// guMap.addMarker(test.getBuildingOptions());
+		addMarkers();
+		setUpHandler();
+		mHandler.sendEmptyMessage(0);
+		guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
+		populateSpinner();
+		setSpinnerListener();
+	}
+	/**
+	 * fill bldgSpinner with the names of all the buildings in markers
+	 */
 	private void populateSpinner(){
-		ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item);
+		ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
 		
 		List<String> bldgArray = new ArrayList<String>();
 		bldgArray.add("Select Building");
@@ -117,6 +136,10 @@ public class MainActivity extends Activity {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		bldgSpinner.setAdapter(adapter);
 	}
+	/**
+	 * make the SelectedItemListener for bldgSpinner move the map to
+	 * the users selection and open its info bubble
+	 */
 	private void setSpinnerListener(){
 		bldgSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent, View view,
@@ -304,26 +327,6 @@ public class MainActivity extends Activity {
 			}
 		}
 	}
-
-	/**
-	 * any setup that needs to happen after all other methods in OnSetup have
-	 * been called is called last in onSetup
-	 */
-	private void postStartSetup() {
-		guMap.setMyLocationEnabled(true);
-		setupIWCL();
-		// GUBuildingMarker test = new GUBuildingMarker(this, "Goller", new
-		// LatLng(47.669199,-117.400174), "a building full of nerds", "24/7",
-		// "oral", "none", "asdf");
-		// guMap.addMarker(test.getBuildingOptions());
-		addMarkers();
-		setUpHandler();
-		mHandler.sendEmptyMessage(0);
-		guMap.setInfoWindowAdapter(new GUBuildingInfoWindowAdapter(this));
-		populateSpinner();
-		setSpinnerListener();
-	}
-
 	/**
 	 * 
 	 * @return the options to create the MapFragment with
