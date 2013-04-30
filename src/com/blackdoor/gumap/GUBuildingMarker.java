@@ -81,7 +81,7 @@ public class GUBuildingMarker implements Parcelable{
 			closeMarker = containingActivity.guMap.addMarker(buildingOptions
 					.icon(null).visible(false));
 		}
-	}
+	Par
 	/**
 	 * @deprecated dont freaking use this
 	 */
@@ -201,11 +201,11 @@ public class GUBuildingMarker implements Parcelable{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
 
 		Log.v(TAG, "writeToParcel..."+ flags);
-		
 	      dest.writeString(name);
 	      dest.writeString(description);
 	      dest.writeString(contactInfo);
