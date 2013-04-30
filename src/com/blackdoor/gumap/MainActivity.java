@@ -107,6 +107,10 @@ public class MainActivity extends Activity {
 		ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		List<String> bldgArray = new ArrayList<String>();
+		for (Iterator<Entry<String, GUBuildingMarker>> iterator = markers.entrySet()
+				.iterator(); iterator.hasNext();) {
+			
+		}
 		
 	}
 	
