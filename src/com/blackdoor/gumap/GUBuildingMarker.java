@@ -74,9 +74,9 @@ public class GUBuildingMarker{
 	private void addMarkers(){
 		try {
 			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
-					.icon(iconMedium).visible(true));
+					.icon(iconMedium).anchor((float).5,(float).5).visible(true));
 			closeMarker = containingActivity.guMap.addMarker(buildingOptions
-					.icon(iconClose).visible(false));
+					.icon(iconClose).anchor((float).5,(float).5).visible(false));
 		} catch (Exception e) {
 			System.err.println(e);
 			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
