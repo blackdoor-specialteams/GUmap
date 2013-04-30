@@ -5,6 +5,7 @@ import com.google.android.gms.maps.model.*;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 public class GUBuildingMarker implements Parcelable{
 	private static final String TAG = "GUbuildingMarker";
@@ -202,6 +203,7 @@ public class GUBuildingMarker implements Parcelable{
 	}
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
+
 		Log.v(TAG, "writeToParcel..."+ flags);
 		
 	      dest.writeString(name);
