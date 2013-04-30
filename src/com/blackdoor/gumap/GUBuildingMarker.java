@@ -7,7 +7,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
-public class GUBuildingMarker implements Parcelable{
+//maybe implements parceable
+public class GUBuildingMarker{
 	private static final String TAG = "GUbuildingMarker";
 	Marker	closeMarker;
 	Marker	mediumMarker;
@@ -207,30 +208,31 @@ public class GUBuildingMarker implements Parcelable{
 	}
 	
 ///////////////////////////////////////////////////////////////////////////
-	@Override
-	public int describeContents() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	@Override
-	public void writeToParcel(Parcel dest, int flags) {
-		dest.writeStringArray(new String[] {this.name,
-				this.description,
-				this.contactInfo,
-				this.hours,
-				this.services,
-				this.dining});
-	}
-	
-	public static final Parcelable.Creator Creator = new Parcelable.Creator() {
-	      public GUBuildingMarker createFromParcel(Parcel source) {
-	            return new GUBuildingMarker(source);
-	      }
-	      public GUBuildingMarker[] newArray(int size) {
-	            return new GUBuildingMarker[size];
-	      }
-	};
+//	
+//	@Override
+//	public int describeContents() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//	
+//	@Override
+//	public void writeToParcel(Parcel dest, int flags) {
+//		dest.writeStringArray(new String[] {this.name,
+//				this.description,
+//				this.contactInfo,
+//				this.hours,
+//				this.services,
+//				this.dining});
+//	}
+//	
+//	public static final Parcelable.Creator Creator = new Parcelable.Creator() {
+//	      public GUBuildingMarker createFromParcel(Parcel source) {
+//	            return new GUBuildingMarker(source);
+//	      }
+//	      public GUBuildingMarker[] newArray(int size) {
+//	            return new GUBuildingMarker[size];
+//	      }
+//	};
 
 
 
