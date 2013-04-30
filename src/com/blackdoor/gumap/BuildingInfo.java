@@ -1,28 +1,12 @@
 package com.blackdoor.gumap;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
-import android.support.v4.view.ViewPager;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -73,7 +57,7 @@ public class BuildingInfo extends Activity {
 	 */
 	public void EstablishBuilding() {
 		// not needed
-			//markerMap = containingActivity.getMarkers();
+		//markerMap = containingActivity.getMarkers();
 		
 		//EXAMPLE:::::
 		//Intent myIntent = new Intent(mycurentActivity.this, secondActivity.class);
@@ -178,5 +162,4 @@ public class BuildingInfo extends Activity {
 		Drawable image = getResources().getDrawable(imageResource);
 		Bicon.setImageDrawable(image);
 	}
-
 }
