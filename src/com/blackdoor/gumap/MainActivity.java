@@ -317,12 +317,17 @@ public class MainActivity extends Activity {
 				GUBuildingMarker info = markers.get(marker.getTitle());
 
 				// Captain Jean-luc Picard of the USS Enterprise
-				Bundle b = new Bundle();
-				b.putParcelable("key_build", info);
+				//Bundle b = new Bundle();
+				//b.putParcelable("key_build", info);
 
-				Intent infointent = new Intent(MainActivity.this,
-						BuildingInfo.class);
-				infointent.putExtras(b);
+				Intent infointent = new Intent(MainActivity.this,BuildingInfo.class);
+				infointent.putExtra("name",info.getName());
+				infointent.putExtra("description",info.getDescription());
+				infointent.putExtra("hours",info.getHours());
+				infointent.putExtra("services",info.getServices());
+				infointent.putExtra("dining",info.getDining());
+				infointent.putExtra("contact",info.getContactInfo());
+				//infointent.putExtra("symbol",info.getSymbol());
 				startActivity(infointent);
 			}
 		});

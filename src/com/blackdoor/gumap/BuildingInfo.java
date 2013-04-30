@@ -10,6 +10,7 @@ import android.view.Menu;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -80,9 +81,19 @@ public class BuildingInfo extends Activity {
 		
 		//get the proper intnet here and the rest falls into place
 		//building = markerMap.get(myIntent.getStringExtra("name");;
+		//**********************************************
+		//parceable attempt
+		//Bundle extras = getIntent().getExtras();
+		//building =  extras.getParcelable("key_build");
 		
-		Bundle extras = getIntent().getExtras();
-		building =  extras.getParcelable("key_build");
+		Intent intent = getIntent();
+		building.setName(intent.getStringExtra("name"));
+		building.setDescription(intent.getStringExtra("description"));
+		building.setHours(intent.getStringExtra("hours"));
+		building.setServices(intent.getStringExtra("services"));
+		building.setDining(intent.getStringExtra("dining"));
+		building.setContactInfo(intent.getStringExtra("contact"));
+		//building.setSymbol(intent.getExtras().getString("symbol"));
 	}
 	
 	/*/////////////////////////////////////////////////
