@@ -18,6 +18,7 @@ public class BuildingInfo extends Activity {
 	private String services;
 	private String dining;
 	private String contact;
+	private	String abbrev;
 	//We be needing this
 	private String csv_null = "null";
 	//Picture Icon 
@@ -78,6 +79,7 @@ public class BuildingInfo extends Activity {
 		services = intent.getStringExtra("services");
 		dining = intent.getStringExtra("dining");
 		contact = intent.getStringExtra("contact");
+		abbrev = intent.getStringExtra("abbrev");
 		//building.setSymbol(intent.getExtras().getString("symbol"));
 	}
 	
@@ -155,7 +157,7 @@ public class BuildingInfo extends Activity {
 	}
 ////////////ICON//////////////////////////////////////////////
 	private void setBuidlingICON() {
-		int imageResource = getResources().getIdentifier(name,
+		int imageResource = getResources().getIdentifier(abbrev,
 				null, getPackageName());
 
 		Bicon = (ImageView) findViewById(R.id.BIcon);

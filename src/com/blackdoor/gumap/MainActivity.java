@@ -361,6 +361,7 @@ public class MainActivity extends Activity {
 				infointent.putExtra("services",info.getServices());
 				infointent.putExtra("dining",info.getDining());
 				infointent.putExtra("contact",info.getContactInfo());
+				infointent.putExtra("abbrev",info.getAbbrev());
 				//infointent.putExtra("symbol",info.getSymbol());
 				startActivity(infointent);
 			}
