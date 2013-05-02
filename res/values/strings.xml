@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">GUmap</string>
     <string name="action_settings">Settings</string>
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
     <string name="title_activity_test">TestActivity</string>
-    <string name="hello_world">Hello world!</string>
-
+    <string name="title_activity_building_info">BuildingInfo</string>
+    <string name="multiline_filler">Lorem ipsum dolor sit amet trrtrtrtrtrt what is this i see in my head, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Lorem ipsum dolor sit amet trrtrtrtrtrt what is this i see in my head, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>     <string name="div_Description">Description</string>
+    <string name="div_Hours">Hours of Operation</string>
+    <string name="div_Service">Services</string>
+    <string name="div_Contact">Contact</string>
+    <string name="div_Dining">Dining</string>
 </resources>

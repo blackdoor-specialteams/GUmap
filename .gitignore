@@ -2,13 +2,16 @@
 ## Android
 #################
 R.java
+Manifest.java
+#################
+## Android
+#################
+key/
 gen/
 *.dex
 *.class
 *.apk
 *.ap_
-
-
 #################
 ## Eclipse
 #################
