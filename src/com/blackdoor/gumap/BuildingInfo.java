@@ -46,7 +46,12 @@ public class BuildingInfo extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_building_info);
 		EstablishBuilding();
-		PopulateText();
+		try {
+			PopulateText();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

@@ -86,9 +86,10 @@ public class GUBuildingMarker{
 				.icon(iconClose).anchor((float).5,(float).5).visible(false));
 		}catch (Exception e) {
 			System.err.println(e);
-			closeMarker = containingActivity.guMap.addMarker(buildingOptions
-					.icon(null).visible(false));
+			
 		}
+		closeMarker = containingActivity.guMap.addMarker(buildingOptions
+				.icon(null).visible(false));
 		
 		}
 
