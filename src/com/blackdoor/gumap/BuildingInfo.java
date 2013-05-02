@@ -80,7 +80,7 @@ public class BuildingInfo extends Activity {
 	 * content of a box/textview. Also sets the ICON.
 	 * \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	 */
-	public void PopulateText() {
+	public void PopulateText() throws Exception {
 		setBuidlingICON();
 		setBuildingNameTEXT();
 		setBuildingDescriptionTEXT();
