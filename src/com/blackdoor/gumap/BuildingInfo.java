@@ -169,7 +169,7 @@ public class BuildingInfo extends Activity {
 	private void setBuidlingICON() throws Exception {
 		Bicon = (ImageView) findViewById(R.id.BIcon);
 		Drawable image = Drawable.createFromStream(
-				getAssets().open("Vie3ws/" + abbrev + "VIEW.png"), null);
+				getAssets().open("Vie3ws/" + abbrev + "VIEW.jpg"), null);
 		Bicon.setImageDrawable(image);
 	}
 }
