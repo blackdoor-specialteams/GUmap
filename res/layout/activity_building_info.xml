@@ -6,7 +6,8 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
+    android:paddingTop="@dimen/activity_vertical_margin" 
+    android:background="#1a1c2b">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -36,6 +37,12 @@
                 android:text="Cj&apos;s Building // Blah"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
+            <ImageView
+                android:id="@+id/NameBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/div_bar" />
+
             <TextView
                 android:id="@+id/divider_Des"
                 android:layout_width="wrap_content"
@@ -54,6 +61,12 @@
                 android:lines="4"
                 android:maxLines="10"
                 android:text="@string/multiline_filler" />
+
+            <ImageView
+                android:id="@+id/divpic_hours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/small_bar" />
 
             <TextView
                 android:id="@+id/divider_hours"
@@ -74,6 +87,12 @@
                 android:maxLines="10"
                 android:text="@string/multiline_filler" />
 
+            <ImageView
+                android:id="@+id/divpic_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/small_bar" />
+
             <TextView
                 android:id="@+id/divider_service"
                 android:layout_width="wrap_content"
@@ -93,6 +112,12 @@
                 android:maxLines="10"
                 android:text="@string/multiline_filler" />
 
+            <ImageView
+                android:id="@+id/divpic_dining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/small_bar" />
+
             <TextView
                 android:id="@+id/divider_dining"
                 android:layout_width="wrap_content"
@@ -111,6 +136,12 @@
                 android:maxLines="10"
                 android:minLines="1"
                 android:text="@string/multiline_filler" />
+
+            <ImageView
+                android:id="@+id/divpic_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/small_bar" />
 
             <TextView
                 android:id="@+id/divider_contact"
