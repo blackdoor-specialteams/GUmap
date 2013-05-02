@@ -11,31 +11,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class BuildingInfo extends Activity {
-	//Local Stuff
+	// Local Stuff
 	private String name;
 	private String des;
 	private String hours;
 	private String services;
 	private String dining;
 	private String contact;
-	private	String abbrev;
-	//We be needing this
+	private String abbrev;
+	// We be needing this
 	private String csv_null = "null";
-	//Picture Icon 
+	// Picture Icon
 	private ImageView Bicon;
-	//Text Fields 
+	// Text Fields
 	private TextView buildingName;
 	private TextView buildingDes;
 	private TextView buildingHours;
 	private TextView buildingServices;
 	private TextView buildingDining;
 	private TextView buildingContact;
-	//Dividers
+	// Dividers
 	private TextView divHours;
 	private TextView divServices;
 	private TextView divDining;
 	private TextView divContact;
-	//Pic Dividers
+	// Pic Dividers
 	private ImageView pdiv_hours;
 	private ImageView pdiv_service;
 	private ImageView pdiv_dining;
@@ -55,11 +55,13 @@ public class BuildingInfo extends Activity {
 		getMenuInflater().inflate(R.menu.building_info, menu);
 		return true;
 	}
-	/*_________________________________________________
-	 * Procures the proper building from the Map
+
+	/*
+	 * _________________________________________________ Procures the proper
+	 * building from the Map
 	 * 
 	 * THIS NEEDS WORK........otherwise we good to go
-	 *_________________________________________________
+	 * _________________________________________________
 	 */
 	public void EstablishBuilding() {
 		Intent intent = getIntent();
@@ -71,13 +73,12 @@ public class BuildingInfo extends Activity {
 		contact = intent.getStringExtra("contact");
 		abbrev = intent.getStringExtra("abbrev");
 	}
-	
-	/*/////////////////////////////////////////////////
-	 * Main Function:
-	 *  checks to see if fields are empty,
-	 * decides to change the visiblity or the content of a
-	 * box/textview. Also sets the ICON.
-	 *\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+	/*
+	 * ///////////////////////////////////////////////// Main Function: checks
+	 * to see if fields are empty, decides to change the visiblity or the
+	 * content of a box/textview. Also sets the ICON.
+	 * \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	 */
 	public void PopulateText() {
 		setBuidlingICON();
@@ -88,17 +89,20 @@ public class BuildingInfo extends Activity {
 		setBuildingdiningTEXT();
 		setBuildingContactTEXT();
 	}
-	//NAME
+
+	// NAME
 	private void setBuildingNameTEXT() {
 		buildingName = (TextView) findViewById(R.id.Bname);
 		buildingName.setText(name);
 	}
-	//DESCRIPTION
+
+	// DESCRIPTION
 	private void setBuildingDescriptionTEXT() {
 		buildingDes = (TextView) findViewById(R.id.Bdescription);
 		buildingDes.setText(des);
 	}
-	//HOURS
+
+	// HOURS
 	private void setBuildingHoursTEXT() {
 		buildingHours = (TextView) findViewById(R.id.Bdining);
 		if (!hours.equals(csv_null)) {
@@ -111,7 +115,8 @@ public class BuildingInfo extends Activity {
 			pdiv_hours.setVisibility(View.GONE);
 		}
 	}
-	//SERVICES
+
+	// SERVICES
 	private void setBuildingServicesTEXT() {
 		buildingServices = (TextView) findViewById(R.id.Bservice);
 		if (!services.equals(csv_null)) {
@@ -125,7 +130,8 @@ public class BuildingInfo extends Activity {
 			pdiv_service.setVisibility(View.GONE);
 		}
 	}
-	//DINING
+
+	// DINING
 	private void setBuildingdiningTEXT() {
 		buildingDining = (TextView) findViewById(R.id.Bdining);
 		if (!dining.equals(csv_null)) {
@@ -139,7 +145,8 @@ public class BuildingInfo extends Activity {
 			pdiv_dining.setVisibility(View.GONE);
 		}
 	}
-	//CONTACT
+
+	// CONTACT
 	private void setBuildingContactTEXT() {
 		buildingContact = (TextView) findViewById(R.id.Bcontact);
 		if (!contact.equals(csv_null)) {
@@ -152,13 +159,12 @@ public class BuildingInfo extends Activity {
 			pdiv_contact.setVisibility(View.GONE);
 		}
 	}
-////////////ICON//////////////////////////////////////////////
-	private void setBuidlingICON() {
-		int imageResource = getResources().getIdentifier(abbrev + "VIEW",
-				null, getPackageName());
 
+	// //////////ICON//////////////////////////////////////////////
+	private void setBuidlingICON() throws Exception {
 		Bicon = (ImageView) findViewById(R.id.BIcon);
-		Drawable image = getResources().getDrawable(imageResource);
+		Drawable image = Drawable.createFromStream(
+				getAssets().open("Vie3ws/" + abbrev + "VIEW.png"), null);
 		Bicon.setImageDrawable(image);
 	}
 }
