@@ -43,9 +43,9 @@ public class GUBuildingInfoWindowAdapter implements InfoWindowAdapter {
 		name.setTextColor(Color.BLACK);
 		name.setTextScaleX((float) 1.3);
 		
-		TextView description = new TextView(containingActivity);
-		description.setText(marker.getDescription());
-		description.setTextColor(Color.DKGRAY);
+		//TextView description = new TextView(containingActivity);
+		//description.setText(marker.getDescription());
+		//description.setTextColor(Color.DKGRAY);
 		
 		TextView hours = new TextView(containingActivity);
 		hours.setText(marker.getHours());
@@ -53,7 +53,7 @@ public class GUBuildingInfoWindowAdapter implements InfoWindowAdapter {
 		hours.setTextColor(Color.DKGRAY);
 		
 		output.addView(name);
-		output.addView(description);
+		//output.addView(description);
 		output.addView(hours);
 		
 		TextView newText = new TextView(containingActivity);
