@@ -62,11 +62,9 @@ public class BuildingInfo extends Activity {
 	}
 
 	/*
-	 * _________________________________________________ Procures the proper
-	 * building from the Map
-	 * 
-	 * THIS NEEDS WORK........otherwise we good to go
-	 * _________________________________________________
+	 * ________________________________________________
+	 *Procures the proper building from the Map
+	 *______________________________________________
 	 */
 	public void EstablishBuilding() {
 		Intent intent = getIntent();
@@ -80,19 +78,20 @@ public class BuildingInfo extends Activity {
 	}
 
 	/*
-	 * ///////////////////////////////////////////////// Main Function: checks
+	 * ///////////////////////////////////////////////// 
+	 * Main Function: checks
 	 * to see if fields are empty, decides to change the visiblity or the
 	 * content of a box/textview. Also sets the ICON.
 	 * \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	 */
 	public void PopulateText() throws Exception {
-		setBuidlingICON();
 		setBuildingNameTEXT();
 		setBuildingDescriptionTEXT();
 		setBuildingHoursTEXT();
 		setBuildingServicesTEXT();
 		setBuildingdiningTEXT();
 		setBuildingContactTEXT();
+		setBuidlingICON();
 	}
 
 	// NAME
@@ -165,7 +164,7 @@ public class BuildingInfo extends Activity {
 		}
 	}
 
-	// //////////ICON//////////////////////////////////////////////
+	////////////ICON//////////////////////////////////////////////
 	private void setBuidlingICON() throws Exception {
 		Bicon = (ImageView) findViewById(R.id.BIcon);
 		Drawable image = Drawable.createFromStream(
