@@ -35,6 +35,11 @@ public class BuildingInfo extends Activity {
 	private TextView divServices;
 	private TextView divDining;
 	private TextView divContact;
+	//Pic Dividers
+	private ImageView pdiv_hours;
+	private ImageView pdiv_service;
+	private ImageView pdiv_dining;
+	private ImageView pdiv_contact;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,21 +62,6 @@ public class BuildingInfo extends Activity {
 	 *_________________________________________________
 	 */
 	public void EstablishBuilding() {
-		// not needed
-		//markerMap = containingActivity.getMarkers();
-		
-		//EXAMPLE:::::
-		//Intent myIntent = new Intent(mycurentActivity.this, secondActivity.class);
-		//myIntent.putExtra("key", myEditText.Text.toString();
-		//startActivity(myIntent); 
-		
-		//get the proper intnet here and the rest falls into place
-		//building = markerMap.get(myIntent.getStringExtra("name");;
-		//**********************************************
-		//parceable attempt
-		//Bundle extras = getIntent().getExtras();
-		//building =  extras.getParcelable("key_build");
-		
 		Intent intent = getIntent();
 		name = intent.getStringExtra("name");
 		des = intent.getStringExtra("description");
@@ -80,7 +70,6 @@ public class BuildingInfo extends Activity {
 		dining = intent.getStringExtra("dining");
 		contact = intent.getStringExtra("contact");
 		abbrev = intent.getStringExtra("abbrev");
-		//building.setSymbol(intent.getExtras().getString("symbol"));
 	}
 	
 	/*/////////////////////////////////////////////////
@@ -91,7 +80,7 @@ public class BuildingInfo extends Activity {
 	 *\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	 */
 	public void PopulateText() {
-		//setBuidlingICON();
+		setBuidlingICON();
 		setBuildingNameTEXT();
 		setBuildingDescriptionTEXT();
 		setBuildingHoursTEXT();
@@ -115,9 +104,11 @@ public class BuildingInfo extends Activity {
 		if (!hours.equals(csv_null)) {
 			buildingHours.setText(hours);
 		} else {
+			pdiv_hours = (ImageView) findViewById(R.id.divpic_hours);
 			divHours = (TextView) findViewById(R.id.divider_hours);
 			buildingHours.setVisibility(View.GONE);
 			divHours.setVisibility(View.GONE);
+			pdiv_hours.setVisibility(View.GONE);
 		}
 	}
 	//SERVICES
@@ -127,9 +118,11 @@ public class BuildingInfo extends Activity {
 
 			buildingServices.setText(services);
 		} else {
+			pdiv_service = (ImageView) findViewById(R.id.divpic_service);
 			divServices = (TextView) findViewById(R.id.divider_service);
 			buildingServices.setVisibility(View.GONE);
 			divServices.setVisibility(View.GONE);
+			pdiv_service.setVisibility(View.GONE);
 		}
 	}
 	//DINING
@@ -139,9 +132,11 @@ public class BuildingInfo extends Activity {
 
 			buildingDining.setText(dining);
 		} else {
+			pdiv_dining = (ImageView) findViewById(R.id.divpic_dining);
 			divDining = (TextView) findViewById(R.id.divider_contact);
 			buildingDining.setVisibility(View.GONE);
 			divDining.setVisibility(View.GONE);
+			pdiv_dining.setVisibility(View.GONE);
 		}
 	}
 	//CONTACT
@@ -150,14 +145,16 @@ public class BuildingInfo extends Activity {
 		if (!contact.equals(csv_null)) {
 			buildingContact.setText(contact);
 		} else {
+			pdiv_contact = (ImageView) findViewById(R.id.divpic_contact);
 			divContact = (TextView) findViewById(R.id.divider_contact);
 			divContact.setVisibility(View.GONE);
 			buildingContact.setVisibility(View.GONE);
+			pdiv_contact.setVisibility(View.GONE);
 		}
 	}
 ////////////ICON//////////////////////////////////////////////
 	private void setBuidlingICON() {
-		int imageResource = getResources().getIdentifier(abbrev,
+		int imageResource = getResources().getIdentifier(abbrev + "VIEW",
 				null, getPackageName());
 
 		Bicon = (ImageView) findViewById(R.id.BIcon);
