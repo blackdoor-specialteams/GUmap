@@ -104,13 +104,6 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * @param heapSize the heapSize to set
-	 */
-	public void setHeapSize(int heapSize) {
-		this.heapSize = heapSize;
-	}
-
-	/**
 	 * any setup that needs to happen after all other methods in OnSetup have
 	 * been called is called last in onSetup
 	 */
@@ -185,7 +178,7 @@ public class MainActivity extends Activity {
 		mHandler = new Handler(){
 				public void handleMessage(Message msg){
 					checkBoundaries();
-					sendEmptyMessageDelayed(0, 5);
+					sendEmptyMessageDelayed(0, 10);
 				}
 			};
 	}
