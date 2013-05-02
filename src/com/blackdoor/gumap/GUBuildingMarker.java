@@ -75,15 +75,21 @@ public class GUBuildingMarker{
 		try {
 			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
 					.icon(iconMedium).anchor((float).5,(float).5).visible(true));
-			closeMarker = containingActivity.guMap.addMarker(buildingOptions
-					.icon(iconClose).anchor((float).5,(float).5).visible(false));
 		} catch (Exception e) {
 			System.err.println(e);
 			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
 					.icon(null).visible(true));
+			
+		}
+		try{
+		closeMarker = containingActivity.guMap.addMarker(buildingOptions
+				.icon(iconClose).anchor((float).5,(float).5).visible(false));
+		}catch (Exception e) {
+			System.err.println(e);
 			closeMarker = containingActivity.guMap.addMarker(buildingOptions
 					.icon(null).visible(false));
 		}
+		
 		}
 
 	/**
