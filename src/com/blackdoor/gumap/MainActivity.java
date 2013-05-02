@@ -22,6 +22,7 @@ import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.model.*;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -89,6 +90,8 @@ public class MainActivity extends Activity {
 		super.onStart();
 		setUpMapIfNeeded();
 		postStartSetup();
+		ActivityManager mgr = (ActivityManager)this.getSystemService(ACTIVITY_SERVICE);
+		System.err.println(mgr.getLargeMemoryClass());
 	}
 	/**
 	 * any setup that needs to happen after all other methods in OnSetup have
@@ -235,14 +238,12 @@ public class MainActivity extends Activity {
 				String abbrev = tokenizer.nextToken(",");
 
 				String description = fileReader.nextLine();// .readLine();
-				description = description
-						.substring(0, description.length() - 8);
-				System.out
-						.println("name: " + name + "\n latlng: "
-								+ coords.toString() + "\n hours: " + hours
-								+ "\n serv: " + services + "\n din: " + dining
-								+ "\n cont: " + contactInfo + "\n desc: "
-								+ description);
+				description = description.substring(0, description.length() - 8);
+//				System.out.println("name: " + name + "\n latlng: "
+//								+ coords.toString() + "\n hours: " + hours
+//								+ "\n serv: " + services + "\n din: " + dining
+//								+ "\n cont: " + contactInfo + "\n desc: "
+//								+ description);
 
 				buildingDataMap.put(name, new GUBuildingMarker(this, name, abbrev,
 						coords, description, hours, services, dining,

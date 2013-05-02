@@ -3,6 +3,7 @@ package com.blackdoor.gumap;
 import com.blackdoor.gumap.MainActivity.Zoom;
 import com.google.android.gms.maps.model.*;
 
+import android.app.ActivityManager;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
@@ -72,6 +73,8 @@ public class GUBuildingMarker{
   }
 	
 	private void addMarkers(){
+		
+		System.err.println();
 		try {
 			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
 					.icon(iconMedium).anchor((float).5,(float).5).visible(true));
