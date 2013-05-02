@@ -68,6 +68,7 @@ public class MainActivity extends Activity {
 	private Zoom zoom = Zoom.MEDIUM;
 	private Handler mHandler;
 	private Spinner bldgSpinner;
+	private int heapSize;
 
 	public static enum Zoom {
 		CLOSE, MEDIUM, FAR
@@ -89,10 +90,26 @@ public class MainActivity extends Activity {
 	protected void onStart() {
 		super.onStart();
 		setUpMapIfNeeded();
-		postStartSetup();
 		ActivityManager mgr = (ActivityManager)this.getSystemService(ACTIVITY_SERVICE);
+		heapSize = mgr.getLargeMemoryClass();
 		System.err.println(mgr.getLargeMemoryClass());
+		postStartSetup();
+		
 	}
+	/**
+	 * @return the heapSize
+	 */
+	public int getHeapSize() {
+		return heapSize;
+	}
+
+	/**
+	 * @param heapSize the heapSize to set
+	 */
+	public void setHeapSize(int heapSize) {
+		this.heapSize = heapSize;
+	}
+
 	/**
 	 * any setup that needs to happen after all other methods in OnSetup have
 	 * been called is called last in onSetup

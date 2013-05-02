@@ -73,16 +73,26 @@ public class GUBuildingMarker{
   }
 	
 	private void addMarkers(){
-		
-		System.err.println();
-		try {
+		if(containingActivity.getHeapSize() < 350){
+			try {
 			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
 					.icon(iconMedium).anchor((float).5,(float).5).visible(true));
 		} catch (Exception e) {
 			System.err.println(e);
 			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
 					.icon(null).visible(true));
-			
+		}
+			closeMarker = containingActivity.guMap.addMarker(buildingOptions
+					.icon(null).visible(false));
+		}
+		else{
+			try {
+			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
+					.icon(iconMedium).anchor((float).5,(float).5).visible(true));
+		} catch (Exception e) {
+			System.err.println(e);
+			mediumMarker = containingActivity.guMap.addMarker(buildingOptions
+					.icon(null).visible(true));
 		}
 		try{
 		closeMarker = containingActivity.guMap.addMarker(buildingOptions
@@ -92,6 +102,8 @@ public class GUBuildingMarker{
 			closeMarker = containingActivity.guMap.addMarker(buildingOptions
 				.icon(null).visible(false));
 		}
+		}
+		
 		
 		
 		}
