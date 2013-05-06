@@ -108,7 +108,7 @@ public class BuildingInfo extends Activity {
 
 	// HOURS
 	private void setBuildingHoursTEXT() {
-		buildingHours = (TextView) findViewById(R.id.Bdining);
+		buildingHours = (TextView) findViewById(R.id.Bhours);
 		if (!hours.equals(csv_null)) {
 			buildingHours.setText(hours);
 		} else {
@@ -143,7 +143,7 @@ public class BuildingInfo extends Activity {
 			buildingDining.setText(dining);
 		} else {
 			pdiv_dining = (ImageView) findViewById(R.id.divpic_dining);
-			divDining = (TextView) findViewById(R.id.divider_contact);
+			divDining = (TextView) findViewById(R.id.divider_dining);
 			buildingDining.setVisibility(View.GONE);
 			divDining.setVisibility(View.GONE);
 			pdiv_dining.setVisibility(View.GONE);

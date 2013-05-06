@@ -6,7 +6,6 @@ Manifest.java
 #################
 ## Android
 #################
-key/
 gen/
 *.dex
 *.class
