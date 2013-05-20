@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
 	ViewPager mViewPager;
 	GoogleMap guMap;
 	private MapFragment guMapFragment;
-	private HashMap<String, GUBuildingMarker> markers;
+	private TreeMap<String, GUBuildingMarker> markers;
 	private Zoom zoom = Zoom.MEDIUM;
 	private Handler mHandler;
 	private Spinner bldgSpinner;
@@ -218,9 +218,9 @@ public class MainActivity extends Activity {
 	 *            in assets folder --> CSV file (GPS_Coords.csv)
 	 * @return ConcurrentSkipListMap containing GUBuildingMarkers
 	 */
-	public HashMap<String, GUBuildingMarker> gatherBuildingData(
+	public TreeMap<String, GUBuildingMarker> gatherBuildingData(
 			String assetName) {
-		HashMap<String, GUBuildingMarker> buildingDataMap = new HashMap<String, GUBuildingMarker>();
+		TreeMap<String, GUBuildingMarker> buildingDataMap = new TreeMap<String, GUBuildingMarker>();
 		StringTokenizer tokenizer;
 		String columnHeaders;
 		AssetManager assetManager = getAssets();
